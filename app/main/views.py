@@ -14,3 +14,26 @@ def index():
     return render_template('index.html', title = title )
    
 
+@main.route('/postjob/<int:id>')
+@login_required
+def post_job(id):
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+
+    title = 'Home'
+
+    return render_template('postjob.html', title = title )
+
+
+@main.route('/postbid/<int:id>')
+def post_bid(id):
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+
+    title = 'Home'
+
+    return render_template('postbid.html', title = title )

@@ -54,6 +54,8 @@ class Jobs(db.Model):
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(1000), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    duration = db.Column(db.String, nullable=False)
+    technologies = db.Column(db.String, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     bids = db.relationship('Bids', backref='bids', lazy='dynamic')
     categories = db.relationship('Categories', backref='categories', lazy='dynamic')
