@@ -12,7 +12,7 @@ app = create_app('development')
 # app = create_app('production')
 
 
-# Create manager instance 
+# Create manager instance
 manager = Manager(app)
 
 # Create migrate instance
@@ -38,4 +38,5 @@ def make_shell_context():
 
 
 if __name__ == '__main__':
+    app.secret_key="moringa12"
     manager.run()
