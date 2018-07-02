@@ -23,7 +23,7 @@ def index():
 @main.route('/postjob', methods=['GET', 'POST'])
 @login_required
 def post_job():
-
+# yeah
     '''
     View root page function that returns the index page and its data
     '''
