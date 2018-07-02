@@ -39,4 +39,4 @@ def make_shell_context():
 
 if __name__ == '__main__':
     app.secret_key = "moringa12"
-    app.run(host='0.0.0.0', port='5022')
+    app.run(host='0.0.0.0', port='5026')

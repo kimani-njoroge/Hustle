@@ -57,7 +57,7 @@ class Jobs(db.Model):
     duration = db.Column(db.String, nullable=False)
     technologies = db.Column(db.String, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    bids = db.relationship('Bids', backref='bids', lazy='dynamic')
+    bids = db.relationship('Bids', backref='jobs', lazy='dynamic')
     categories = db.relationship('Categories', backref='categories', lazy='dynamic')
 
 
