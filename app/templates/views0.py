@@ -1,6 +1,4 @@
 from flask import render_template,request,redirect,url_for,abort
-
-
 from . import main
 from flask_login import login_required,current_user
 from . forms import PostBidForm
@@ -20,10 +18,10 @@ def index():
     return render_template('index.html', title = title )
 
 
-@main.route('/postjob', methods=['GET', 'POST'])
+@main.route('/postjob/<int:id>')
 @login_required
-def post_job():
-# yeah
+def post_job(id):
+
     '''
     View root page function that returns the index page and its data
     '''

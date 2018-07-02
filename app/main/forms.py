@@ -1,8 +1,15 @@
+from wtforms import StringField,TextAreaField,SubmitField, IntegerField,ValidationError
 from flask_wtf import FlaskForm
-from wtforms import StringField,SubmitField,ValidationError
 from wtforms.validators import Required
 
 
+class PostBidForm(FlaskForm):
+    '''
+    class to create a wtf form for posting bid
+    '''
+    description = TextAreaField('Bid Description ',validators=[Required()])
+    cost = IntegerField('Bid Cost$', validators=[Required()])
+    submit = SubmitField('Submit')
 
 
 class PostJobForm(FlaskForm):
