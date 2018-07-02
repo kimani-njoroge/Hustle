@@ -37,20 +37,22 @@ def post_job():
     return render_template('postjob.html', title=title, job_form=job_form)
 
 
-@main.route('/postbid/<int:id>', methods=['GET', 'POST'])
-def post_bid(jobs_id):
+@main.route('/job/<int:jobs_id>', methods=['GET', 'POST'])
+def view_job(jobs_id):
     """
     View root page function that returns the index page and its data
     """
+    job = Jobs.query.get_or_404(jobs_id)
     bid_form = PostBidForm()
     if bid_form.validate_on_submit():
-        bid = Bids(description=bid_form.description.data, cost=bid_form.cost.data, user=current_user, jobs_id=jobs_id)
+        bid = Bids(description=bid_form.description.data, cost=bid_form.cost.data, user=current_user, jobs_id=job.id)
         db.session.add(bid)
         db.session.commit()
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('main.view_job', jobs_id=jobs_id))
     title = 'Post a bid'
+    bids = Bids.query.filter_by(jobs_id=jobs_id).all()
 
-    return render_template('postbid.html', title=title, bid_form=bid_form)
+    return render_template('bid.html', title=title, bid_form=bid_form, job=job, bids=bids)
 
 
 @main.route('/jobs', methods=['GET', 'POST'])
