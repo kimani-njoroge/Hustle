@@ -56,7 +56,7 @@ class Jobs(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     bids = db.relationship('Bids', backref='bids', lazy='dynamic')
-    jobs = db.relationship('Jobs', backref='jobs', lazy='dynamic')
+    categories = db.relationship('Categories', backref='categories', lazy='dynamic')
 
 
 class Bids(db.Model):
