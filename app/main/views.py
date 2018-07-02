@@ -51,3 +51,29 @@ def post_bid(id):
     title = 'Home'
 
     return render_template('postbid.html', title = title )
+<<<<<<< HEAD
+=======
+
+@main.route('/bid/<int:id>')
+def bid(id):
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+
+    title = 'Home'
+
+    return render_template('client.html', title = title )
+
+
+@main.route('/job/<int:id>')
+def job(id):
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+
+    title = 'Home'
+
+    return render_template('freelancer.html.html', title = title )
+>>>>>>> 785e08184543ec87924e8025538c8545e35b10c8
