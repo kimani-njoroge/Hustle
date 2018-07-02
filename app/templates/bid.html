@@ -1,26 +1,15 @@
-{% extends 'bootstrap/base.html'%}
-{% import 'bootstrap/wtf.html' as wtf%}
+{% extends 'base.html' %}
+
 
 {% block content %}
+
 <div class="container-fluid">
-    <h1>{{job.title}}</h1>
-    <p>{{job.description}}</p>
-    <small class="text-muted">{{ job.date_posted.strftime('%Y-%m-%d')}}</small>
-    <p>{{job.duration}}</p>
-    <p>{{job.technologies}}</p>
-    <p>{{job.user.username}}</p>
+    <a href="#">{{bid.user.username}} bid:</a>
+    <p> &nbsp; {{bid.cost}} $</p>
+    <p>{{bid.description}}</p>
 
-    {{wtf.quick_form(bid_form)}}
-
-
-    <div>
-        {%for bid in bids %}
-        <a class="article-title" href="#">{{bid.user.username}} bid:</a>
-        <p> &nbsp; {{bid.cost}} $</p>
-        <p>{{bid.description}}</p>
-        {%endfor%}
-    </div>
+    <button class="btn btn-success">Accept bid</button>
 </div>
-{% endblock%}
+{% endblock %}
 
 

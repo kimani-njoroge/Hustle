@@ -52,10 +52,16 @@ def view_job(jobs_id):
     title = 'Post a bid'
     bids = Bids.query.filter_by(jobs_id=jobs_id).all()
 
-    return render_template('bid.html', title=title, bid_form=bid_form, job=job, bids=bids)
+    return render_template('job.html', title=title, bid_form=bid_form, job=job, bids=bids)
 
 
 @main.route('/jobs', methods=['GET', 'POST'])
 def view_jobs():
     jobs = Jobs.query.all()
     return render_template('jobs.html', jobs=jobs)
+
+
+@main.route("/bid/<int:bids_id>", methods=['GET', 'POST'])
+def bid(bids_id):
+    bid = Bids.query.get_or_404(bids_id)
+    return render_template('bid.html', title='Comment', bid=bid)
