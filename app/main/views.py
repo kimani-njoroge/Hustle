@@ -20,9 +20,10 @@ def index():
     return render_template('index.html', title = title )
 
 
-@main.route('/postjob/<int:id>')
-def post_job(id):
-
+@main.route('/postjob', methods=['GET', 'POST'])
+@login_required
+def post_job():
+# yeah
     '''
     View root page function that returns the index page and its data
     '''
