@@ -19,7 +19,6 @@ def index():
 
 
 @main.route('/postjob/<int:id>')
-@login_required
 def post_job(id):
 
     '''
