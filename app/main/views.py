@@ -26,7 +26,7 @@ def index():
 def post_job():
     if current_user.role != 'client':
         abort(403)
-    """
+    '''
     View root page function that returns the index page and its data
     '''
 
@@ -63,6 +63,7 @@ def reviews():
         db.session.commit()
         return redirect(url_for('main.reviews'))
     title = 'Reviews'
+    return render_template('reviews.html', title = title ,form_reviews = form)
 
 @main.route("/bid/<int:bids_id>", methods=['GET', 'POST'])
 def bid(bids_id):
