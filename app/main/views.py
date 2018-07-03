@@ -46,13 +46,16 @@ def post_bid(id):
     return render_template('postbid.html', title = title, bid_form = bid_form )
 
 
-@main.route('/reviews/<int:id>')
+@main.route('/reviews')
 def reviews(id):
-
     '''
     View root page function that returns the reviews page and its data
     '''
-
+    fprm= ReviewsForm()
+    if form.validate_on_submit():
+        reviews = Reviews(description = form.description.data, scale = form.scale.data, profile_id=profile.id)
+        db.session.add(reviews)
+        db.session.commit()
     title = 'Reviews'
 
     return render_template('reviews.html', title = title )
