@@ -28,7 +28,6 @@ class PostJobForm(FlaskForm):
 
     technologies = StringField('technologies', validators=[Required()])
 
-
     submit = SubmitField('Post')
 
 class ReviewsForm(FlaskForm):
@@ -63,4 +62,5 @@ class UpdateAccountForm(FlaskForm):
                 raise ValidationError('That email is taken. Please choose a different one.')
 
 
-
+class AcceptbidForm(FlaskForm):
+    submit = SubmitField('Accept Bid')
