@@ -1,8 +1,6 @@
 from datetime import datetime
-
 from flask import url_for, app, config
 from werkzeug.utils import redirect
-
 from . import db
 from flask_login import UserMixin
 from . import login_manager
@@ -15,9 +13,11 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), unique=True, nullable=False)
     email = db.Column(db.String(255), unique=True, index=True, nullable=False)
     role = db.Column(db.String(100), nullable=False)
-    profile = db.relationship('Profile', backref='user', lazy='dynamic')
+    image_file = db.Column(db.String(70), nullable=False, default='default.jpg')
     jobs = db.relationship('Jobs', backref='user', lazy='dynamic')
     bids = db.relationship('Bids', backref='user', lazy='dynamic')
+    acceptbids = db.relationship('Acceptbids', backref='user', lazy='dynamic')
+
 
     def __repr__(self):
         return f'User {self.username}'
@@ -40,15 +40,6 @@ class User(UserMixin, db.Model):
         return User.query.get(int(user_id))
 
 
-class Profile(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    bio = db.Column(db.String)
-    image_file = db.Column(db.String(70), nullable=False, default='default.jpg')
-    cows = db.Column(db.String)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    reviews = db.relationship('Reviews', backref='reviews', lazy='dynamic')
-
-
 class Jobs(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -67,16 +58,24 @@ class Bids(db.Model):
     cost = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     jobs_id = db.Column(db.Integer, db.ForeignKey("jobs.id"))
+    acceptbids = db.relationship('Acceptbids', backref='bids', lazy='dynamic')
 
 
 class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(1000), nullable=False)
     scale = db.Column(db.Integer)
-    profile_id = db.Column(db.Integer, db.ForeignKey("profile.id"))
+
 
 
 class Categories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     jobs_id = db.Column(db.Integer, db.ForeignKey("jobs.id"))
+
+
+class Acceptbids(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    accepted_bid = db.Column(db.Integer, db.ForeignKey("bids.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+

@@ -8,12 +8,17 @@
 <!-- Content block -->
 {% block content %}
 
-    <title> {{ title }} </title>
+<title> {{ title }} </title>
+
 
     <div class="container-fluid">
         <div class="jumbotron" id="head">
             <h1>Home Page</h1>
-        
+            
+    <h1>Home Page</h1>
+    {% if current_user.role == 'freelancer' %}
+    <a href="{{url_for('main.view_jobs')}}"><button class="btn">View Jobs</button></a>
+    {% endif %}
             
             </div> 
     </div>
@@ -30,6 +35,5 @@
     </div>
 
 
-    </div>
 
 {% endblock %}

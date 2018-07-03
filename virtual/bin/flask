@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/home/neville/Desktop/Hustle/virtual/bin/python3.6
+=======
+#!/home/sam/PycharmProjects/Hustle/virtual/bin/python3.6
+>>>>>>> a49364dc2eb704df4896abf143adee65fc561159
 
 # -*- coding: utf-8 -*-
 import re
