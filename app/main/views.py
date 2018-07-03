@@ -1,10 +1,12 @@
+import profile
+
 from flask import render_template, request, redirect, url_for, abort
 import secrets
 import os
 from . import main
 from flask_login import login_required, current_user
-from .forms import PostBidForm, PostJobForm,SetUpAccountForm
-from ..models import Bids, Jobs,Profile
+from .forms import PostBidForm, PostJobForm, ReviewsForm,SetUpAccountForm
+from ..models import Bids, Jobs, Reviews,Profile
 from app import db
 from manage import app
 
@@ -70,6 +72,20 @@ def bid(bids_id):
     bid = Bids.query.get_or_404(bids_id)
     return render_template('bid.html', title='Comment', bid=bid)
 
+@main.route('/reviews', methods=['GET', 'POST'])
+def reviews():
+    '''
+    View root page function that returns the reviews page and its data
+    '''
+    form = ReviewsForm()
+    if form.validate_on_submit():
+        reviews = Reviews(description = form.description.data, scale = form.scale.data)
+        db.session.add(reviews)
+        db.session.commit()
+        return redirect(url_for('main.reviews'))
+    title = 'Reviews'
+
+    return render_template('reviews.html', title = title ,form_reviews = form)
 
 @main.route('/user', methods=['GET', 'POST'])
 def profile():
@@ -81,4 +97,3 @@ def profile():
            # return redirect(url_for('main.index'))
 
     return render_template('profile/profile.html',form=form)
-

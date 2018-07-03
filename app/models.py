@@ -1,8 +1,6 @@
 from datetime import datetime
-
 from flask import url_for, app, config
 from werkzeug.utils import redirect
-
 from . import db
 from flask_login import UserMixin
 from . import login_manager
@@ -18,6 +16,8 @@ class User(UserMixin, db.Model):
     profile = db.relationship('Profile', backref='user', lazy='dynamic')
     jobs = db.relationship('Jobs', backref='user', lazy='dynamic')
     bids = db.relationship('Bids', backref='user', lazy='dynamic')
+    acceptbids = db.relationship('Acceptbids', backref='user', lazy='dynamic')
+
 
     def __repr__(self):
         return f'User {self.username}'
@@ -67,6 +67,7 @@ class Bids(db.Model):
     cost = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     jobs_id = db.Column(db.Integer, db.ForeignKey("jobs.id"))
+    acceptbids = db.relationship('Acceptbids', backref='bids', lazy='dynamic')
 
 
 class Reviews(db.Model):
@@ -80,3 +81,10 @@ class Categories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     jobs_id = db.Column(db.Integer, db.ForeignKey("jobs.id"))
+
+
+class Acceptbids(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    accepted_bid = db.Column(db.Integer, db.ForeignKey("bids.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+
