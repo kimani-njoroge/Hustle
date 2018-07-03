@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect, url_for, abort
+
 from . import main
 from flask_login import login_required, current_user
 from .forms import PostBidForm, PostJobForm
@@ -20,6 +21,8 @@ def index():
 @main.route('/postjob', methods=['GET', 'POST'])
 @login_required
 def post_job():
+    if current_user.role != 'client':
+        abort(403)
     """
     View root page function that returns the index page and its data
     """
@@ -64,3 +67,4 @@ def view_jobs():
 def bid(bids_id):
     bid = Bids.query.get_or_404(bids_id)
     return render_template('bid.html', title='Comment', bid=bid)
+
