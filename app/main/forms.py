@@ -8,7 +8,7 @@ class PostBidForm(FlaskForm):
     class to create a wtf form for posting bid
     '''
     description = TextAreaField('Bid Description ',validators=[Required()])
-    cost = IntegerField('Bid Cost$', validators=[Required()])
+    cost = IntegerField('Bid Cost $', validators=[Required()])
     submit = SubmitField('Submit')
 
 
