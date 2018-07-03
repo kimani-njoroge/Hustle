@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="container-fluid">
-    <a href="#">{{bid.user.username}} bid:</a>
+    <a href="{{url_for('main.view_account', user_id=bid.user.id)}}">{{bid.user.username}}</a> bid:
     <p> &nbsp; {{bid.cost}} $</p>
     <p>{{bid.description}}</p>
 

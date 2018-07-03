@@ -12,7 +12,7 @@
  <small class="text-muted">{{ job.date_posted.strftime('%Y-%m-%d')}}</small>
  <p>{{job.duration}}</p>
  <p>{{job.technologies}}</p>
- <p>{{job.user.username}}</p>
+ <p><a href="{{url_for('main.view_account', user_id=job.user.id)}}"> {{job.user.username}}</a></p>
  {% endfor%}
  {% endif %}
 
