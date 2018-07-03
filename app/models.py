@@ -13,7 +13,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), unique=True, nullable=False)
     email = db.Column(db.String(255), unique=True, index=True, nullable=False)
     role = db.Column(db.String(100), nullable=False)
-    profile = db.relationship('Profile', backref='user', lazy='dynamic')
+    image_file = db.Column(db.String(70), nullable=False, default='default.jpg')
     jobs = db.relationship('Jobs', backref='user', lazy='dynamic')
     bids = db.relationship('Bids', backref='user', lazy='dynamic')
     acceptbids = db.relationship('Acceptbids', backref='user', lazy='dynamic')
@@ -38,15 +38,6 @@ class User(UserMixin, db.Model):
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
-
-
-class Profile(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    bio = db.Column(db.String)
-    image_file = db.Column(db.String(70), nullable=False, default='default.jpg')
-    cows = db.Column(db.String)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    reviews = db.relationship('Reviews', backref='reviews', lazy='dynamic')
 
 
 class Jobs(db.Model):
@@ -74,7 +65,7 @@ class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(1000), nullable=False)
     scale = db.Column(db.Integer)
-    profile_id = db.Column(db.Integer, db.ForeignKey("profile.id"))
+
 
 
 class Categories(db.Model):
