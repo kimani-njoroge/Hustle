@@ -32,5 +32,6 @@ class ReviewsForm(FlaskForm):
     class to create a wtf form for posting reviews
     '''
     description = TextAreaField('Reviews Description ',validators=[Required()])
-    scale = IntegerField('Reviews Scale', [validators.Length(min=1, max=5)])
+    scale = IntegerField('Reviews Scale(1-5)', [validators.NumberRange(message='Range should be between 1 and 5.',
+                               min=1, max=5)])
     submit = SubmitField('Submit')

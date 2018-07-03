@@ -1,8 +1,8 @@
-from flask import render_template,request,redirect,url_for,abort
+from flask import render_template, request, redirect, url_for,abort
 from . import main
 from flask_login import login_required,current_user
-from . forms import PostBidForm
-from .. models import Bids
+from . forms import PostBidForm, ReviewsForm
+from .. models import Bids, Reviews
 from app import db
 
 # Views
@@ -46,16 +46,17 @@ def post_bid(id):
     return render_template('postbid.html', title = title, bid_form = bid_form )
 
 
-@main.route('/reviews')
-def reviews(id):
+@main.route('/reviews', methods=['GET', 'POST'])
+def reviews():
     '''
     View root page function that returns the reviews page and its data
     '''
-    fprm= ReviewsForm()
+    form = ReviewsForm()
     if form.validate_on_submit():
-        reviews = Reviews(description = form.description.data, scale = form.scale.data, profile_id=profile.id)
+        reviews = Reviews(description = form.description.data, scale = form.scale.data)
         db.session.add(reviews)
         db.session.commit()
+        return redirect(url_for('main.reviews'))
     title = 'Reviews'
 
-    return render_template('reviews.html', title = title )
+    return render_template('reviews.html', title = title ,form_reviews = form)
