@@ -11,7 +11,7 @@ class PostBidForm(FlaskForm):
     '''
     class to create a wtf form for posting bid
     '''
-    description = TextAreaField('Bid Description ',validators=[Required()])
+    description = TextAreaField('Bid Description ', validators=[Required()])
     cost = IntegerField('Bid Cost $', validators=[Required()])
     submit = SubmitField('Submit')
 
@@ -30,13 +30,14 @@ class PostJobForm(FlaskForm):
 
     submit = SubmitField('Post')
 
+
 class ReviewsForm(FlaskForm):
     '''
     class to create a wtf form for posting reviews
     '''
-    description = TextAreaField('Reviews Description ',validators=[Required()])
+    description = TextAreaField('Reviews Description ', validators=[Required()])
     scale = IntegerField('Reviews Scale(1-5)', [validators.NumberRange(message='Range should be between 1 and 5.',
-                               min=1, max=5)])
+                                                                       min=1, max=5)])
     submit = SubmitField('Submit')
 
 
@@ -64,3 +65,4 @@ class UpdateAccountForm(FlaskForm):
 
 class AcceptbidForm(FlaskForm):
     submit = SubmitField('Accept Bid')
+
