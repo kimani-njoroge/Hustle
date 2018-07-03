@@ -7,10 +7,8 @@
 
 <div class="container">
 
-  <h1>Home Page</h1>
-
-
-
+  <h1>Home Page</h1> {% if current_user.role == 'freelancer' %}
+  <a href="{{url_for('main.view_jobs')}}"><button class="btn">View Jobs</button></a> {% endif %}
 </div>
 
 {% endblock %}

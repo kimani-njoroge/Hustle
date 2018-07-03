@@ -2,52 +2,27 @@
 
 <!-- Navbar block -->
 {% block navbar %}
-<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Hustle</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
 
-  <div class="navbar navbar-inverse" role="navigation">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li>
+        <a href="{{url_for('main.post_job')}}">Post Job</a>
+      </li>
+      {% if current_user.is_authenticated %}
+      <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+      <li><a href="{{url_for('main.profile',users=current_user.username)}}">Profile</a></li>
+      {% else %}
+      <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+      <li><a href="{{url_for('auth.register')}}">Register</a></li>
 
-    <div>
-
-      <div class="navbar-header">
-
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-
-                    </button>
-
-        <a href="/" class="navbar-brand">Hustlers base</a>
-
-      </div>
-
-      <div class="navbar-collapse collapse">
-
-        <ul class="nav navbar-nav">
-
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="{{url_for('auth.register')}}">register</a>
-          </li>
-          <li>
-            <a href="/login">Login</a>
-          </li>
-          <li>
-            <a href="/postbid">PostBid</a>
-          </li>
-
-
-        </ul>
-
-
-
-      </div>
-
-    </div>
-
+      {%endif%}
+    </ul>
   </div>
-  {% endblock %}
+</nav>
+
+{% endblock %}
