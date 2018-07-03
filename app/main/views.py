@@ -23,6 +23,8 @@ def index():
 @main.route('/postjob', methods=['GET', 'POST'])
 @login_required
 def post_job():
+    if current_user.role != 'client':
+        abort(403)
     """
     View root page function that returns the index page and its data
     """
@@ -69,7 +71,6 @@ def bid(bids_id):
     return render_template('bid.html', title='Comment', bid=bid)
 
 
-
 @main.route('/user', methods=['GET', 'POST'])
 def profile():
     form = SetUpAccountForm()
@@ -80,3 +81,4 @@ def profile():
            # return redirect(url_for('main.index'))
 
     return render_template('profile/profile.html',form=form)
+

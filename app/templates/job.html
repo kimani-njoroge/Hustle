@@ -10,10 +10,12 @@
     <p>{{job.technologies}}</p>
     <p>{{job.user.username}}</p>
 
+    {% if current_user.role == 'freelancer' %}
     {{wtf.quick_form(bid_form)}}
-
+    {% endif %}
 
     <div>
+        {% if job.user == current_user %}
         {%for bid in bids %}
         <div class="panel">
             <p>{{bid.user.username}} bid:</p>
@@ -22,6 +24,7 @@
             <a href="{{url_for('main.bid', bids_id=bid.id)}}">&nbsp; <button class="btn">View bid</button></a>
         </div>
         {%endfor%}
+        {% endif %}
     </div>
 </div>
 {% endblock%}
