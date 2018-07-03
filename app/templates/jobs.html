@@ -4,13 +4,16 @@
 {% block content %}
 <div class="container-fluid">
 {%for job in jobs %}
- <h1><a href="">{{job.title}}</a></h1>
-<p>{{job.descritpion}}</p>
+ <h1><a href="{{url_for('main.view_job', jobs_id=job.id)}}">{{job.title}}</a></h1>
+<p>{{job.description}}</p>
 <small class="text-muted">{{ job.date_posted.strftime('%Y-%m-%d')}}</small>
 <p>{{job.duration}}</p>
 <p>{{job.technologies}}</p>
  <p>{{job.user.username}}</p>
 {% endfor%}
+
 </div>
+
+
 {% endblock %}
 
