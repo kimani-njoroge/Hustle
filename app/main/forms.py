@@ -25,7 +25,6 @@ class PostJobForm(FlaskForm):
 
     technologies = StringField('technologies', validators=[Required()])
 
-
     submit = SubmitField('Post')
 
 class ReviewsForm(FlaskForm):
@@ -44,3 +43,7 @@ class SetUpAccountForm(FlaskForm):
 
 
     submit = SubmitField('Set up Account')
+
+
+class AcceptbidForm(FlaskForm):
+    submit = SubmitField('Accept Bid')
