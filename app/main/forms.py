@@ -1,4 +1,4 @@
-from wtforms import StringField,TextAreaField,SubmitField, IntegerField,ValidationError
+from wtforms import StringField,TextAreaField,SubmitField, IntegerField,ValidationError, validators
 from flask_wtf import FlaskForm
 from wtforms.validators import Required
 
@@ -26,3 +26,11 @@ class PostJobForm(FlaskForm):
 
 
     submit = SubmitField('Sign Up')
+
+class ReviewsForm(FlaskForm):
+    '''
+    class to create a wtf form for posting reviews
+    '''
+    description = TextAreaField('Reviews Description ',validators=[Required()])
+    scale = IntegerField('Reviews Scale', [validators.Length(min=1, max=5)])
+    submit = SubmitField('Submit')
