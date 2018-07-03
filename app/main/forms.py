@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from wtforms import StringField,TextAreaField,SubmitField, IntegerField,ValidationError, validators
+=======
+from wtforms import StringField, TextAreaField, SubmitField, IntegerField, ValidationError, validators
+>>>>>>> 8e02d2e9cfeb14cfc2f5a57c0a15369b9dfa2083
 from flask_wtf import FlaskForm
 from wtforms.validators import Required
 from flask_wtf.file import FileField, FileAllowed
@@ -26,7 +30,7 @@ class PostJobForm(FlaskForm):
     technologies = StringField('technologies', validators=[Required()])
 
 
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Post')
 
 class ReviewsForm(FlaskForm):
     '''
@@ -44,4 +48,4 @@ class SetUpAccountForm(FlaskForm):
     cows = StringField('Your Conditions of Work', validators=[Required()])
 
 
-    submit = SubmitField('Update information')
+    submit = SubmitField('Set up Account')
