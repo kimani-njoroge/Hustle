@@ -5,7 +5,12 @@ class Config:
     '''
     General configuration parent class
     '''
+<<<<<<< HEAD
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ephantus:switcher12@localhost/hustle'
+=======
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://neville:quelde@localhost/hustle'
+>>>>>>> f3c85e1a363b75a9e9f2c986dce5303e1fbd3bb5
 
 
 class ProdConfig(Config):

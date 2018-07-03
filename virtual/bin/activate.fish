@@ -36,7 +36,19 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
+<<<<<<< HEAD
 set -gx VIRTUAL_ENV "/home/ephantus/Desktop/Moringa_school_projects/Core-Projects/Python/Projects/Hustle/virtual"
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+set -gx VIRTUAL_ENV "/home/neville/Desktop/Hustle/virtual"
+=======
+set -gx VIRTUAL_ENV "/home/sam/PycharmProjects/Hustle/virtual"
+>>>>>>> a49364dc2eb704df4896abf143adee65fc561159
+=======
+set -gx VIRTUAL_ENV "/home/neville/Desktop/Hustle/virtual"
+>>>>>>> development
+>>>>>>> f3c85e1a363b75a9e9f2c986dce5303e1fbd3bb5
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

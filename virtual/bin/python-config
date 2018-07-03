@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 #!/home/ephantus/Desktop/Moringa_school_projects/Core-Projects/Python/Projects/Hustle/virtual/bin/python
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+#!/home/neville/Desktop/Hustle/virtual/bin/python
+=======
+#!/home/sam/PycharmProjects/Hustle/virtual/bin/python
+>>>>>>> a49364dc2eb704df4896abf143adee65fc561159
+=======
+#!/home/neville/Desktop/Hustle/virtual/bin/python
+>>>>>>> development
+>>>>>>> f3c85e1a363b75a9e9f2c986dce5303e1fbd3bb5
 
 import sys
 import getopt
