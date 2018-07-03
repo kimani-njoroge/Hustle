@@ -1,0 +1,16 @@
+.cot{
+    background-color: white;
+    color: #1d2124;
+    bottom: 0;
+    background: rgba(255, 0, 4 ,  0.5);
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+    margin-left: 22%;
+}
+body{
+    background-color: #1d2124;
+}
+.form-control{
+    background: rgba(0, 0, 0, 0.5);
+}
