@@ -1,14 +1,26 @@
-/*Styles for the home page*/
-input[type=text] {
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+#reg{
+    min-height: 800px;
+    background-color:#1d2124;
+    text-align: center;
+    color: white;
+    
 }
-
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-    width: 100%;
+#reg-form{
+    text-align: center;
+    font-size: 25px;
+}
+.jumbotron{
+    background-color: rgba(217, 84, 79, 0.932);
+    color: white;
+    font-size: 40px;
+}
+.d-flex{
+    width: 800px;
 }
 #head{
-    text-align: center;
+    font-size: 50px;
+}
+.row{
+    padding-top: 50px;
+
 }

@@ -8,10 +8,14 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 deactivate nondestructive
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 setenv VIRTUAL_ENV "/home/neville/Desktop/Hustle/virtual"
 =======
 setenv VIRTUAL_ENV "/home/sam/PycharmProjects/Hustle/virtual"
 >>>>>>> a49364dc2eb704df4896abf143adee65fc561159
+=======
+setenv VIRTUAL_ENV "/home/neville/Desktop/Hustle/virtual"
+>>>>>>> development
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"

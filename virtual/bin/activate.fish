@@ -37,10 +37,14 @@ end
 deactivate nondestructive
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 set -gx VIRTUAL_ENV "/home/neville/Desktop/Hustle/virtual"
 =======
 set -gx VIRTUAL_ENV "/home/sam/PycharmProjects/Hustle/virtual"
 >>>>>>> a49364dc2eb704df4896abf143adee65fc561159
+=======
+set -gx VIRTUAL_ENV "/home/neville/Desktop/Hustle/virtual"
+>>>>>>> development
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
