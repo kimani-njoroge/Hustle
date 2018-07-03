@@ -1,12 +1,14 @@
 import profile
 
 from flask import render_template, request, redirect, url_for, abort
-
+import secrets
+import os
 from . import main
 from flask_login import login_required, current_user
-from .forms import PostBidForm, PostJobForm, ReviewsForm
-from ..models import Bids, Jobs, Reviews
+from .forms import PostBidForm, PostJobForm, ReviewsForm,SetUpAccountForm
+from ..models import Bids, Jobs, Reviews,Profile
 from app import db
+from manage import app
 
 
 @main.route('/')
@@ -84,3 +86,14 @@ def reviews():
     title = 'Reviews'
 
     return render_template('reviews.html', title = title ,form_reviews = form)
+
+@main.route('/user', methods=['GET', 'POST'])
+def profile():
+    form = SetUpAccountForm()
+    if form.validate_on_submit():
+       profile = Profile(bio=form.bio.data, cows=form.cows.data, user=current_user)
+       db.session.add(profile)
+       db.session.commit()
+           # return redirect(url_for('main.index'))
+
+    return render_template('profile/profile.html',form=form)
