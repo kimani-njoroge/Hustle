@@ -4,7 +4,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sam:  @localhost/hustle'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://neville:quelde@localhost/hustle'
 
 class ProdConfig(Config):
     '''
