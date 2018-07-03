@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-from wtforms import StringField,TextAreaField,SubmitField, IntegerField,ValidationError, validators
-=======
 from wtforms import StringField, TextAreaField, SubmitField, IntegerField, ValidationError, validators
->>>>>>> 8e02d2e9cfeb14cfc2f5a57c0a15369b9dfa2083
 from flask_wtf import FlaskForm
 from wtforms.validators import Required
 from flask_wtf.file import FileField, FileAllowed
