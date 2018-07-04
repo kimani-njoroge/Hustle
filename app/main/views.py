@@ -101,7 +101,7 @@ def save_picture(form_picture):
 @main.route("/user", methods=['GET', 'POST'])
 @login_required
 def profile():
-    form = UpdateAccountForm()
+    form =   UpdateAccountForm()
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
@@ -143,3 +143,6 @@ def upload():
 def download():
     file_data = FileContents.query.filter_by(id=3).first()
     return send_file(BytesIO(file_data.data), attachment_filename='download', as_attachment=True)
+
+
+
