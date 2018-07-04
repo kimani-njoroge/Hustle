@@ -18,7 +18,6 @@ class User(UserMixin, db.Model):
     bids = db.relationship('Bids', backref='user', lazy='dynamic')
     acceptbids = db.relationship('Acceptbids', backref='user', lazy='dynamic')
 
-
     def __repr__(self):
         return f'User {self.username}'
 
@@ -67,7 +66,6 @@ class Reviews(db.Model):
     scale = db.Column(db.Integer)
 
 
-
 class Categories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
@@ -79,3 +77,8 @@ class Acceptbids(db.Model):
     accepted_bid = db.Column(db.Integer, db.ForeignKey("bids.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
+
+class FileContents(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(300))
+    data = db.Column(db.LargeBinary)

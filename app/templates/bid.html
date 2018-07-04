@@ -4,19 +4,17 @@
 {% block content %}
 
 <div class="container-fluid">
-    <!-- <a href="#">{{bid.user.username}} bid:</a>
+    <a href="{{url_for('main.view_account', user_id=bid.user.id)}}">{{bid.user.username}}</a> bid:
     <p> &nbsp; {{bid.cost}} $</p>
     <p>{{bid.description}}</p> -->
 
-    
+
     <div class="card">
         <div class="card-header">{{bid.user.username}} </div>
-        <div class="card-body">{{bid.description}}</div> 
+        <div class="card-body">{{bid.description}}</div>
         <div class="card-footer">{{bid.cost}}</div>
     </div>
     <button class="btn btn-success">Accept bid</button>
 </div>
 
 {% endblock %}
-
-

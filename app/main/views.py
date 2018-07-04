@@ -1,14 +1,13 @@
-import profile
-
-from flask import render_template, request, redirect, url_for, abort
+from flask import render_template, request, redirect, url_for, abort, send_file
 import secrets
 import os
 from . import main
 from flask_login import login_required, current_user
-from .forms import PostBidForm, PostJobForm, ReviewsForm,SetUpAccountForm
-from ..models import Bids, Jobs, Reviews
+from .forms import PostBidForm, PostJobForm, ReviewsForm, UpdateAccountForm
+from ..models import Bids, Jobs, Reviews, User, FileContents
 from app import db
 from manage import app
+from io import BytesIO
 
 # Views
 @main.route('/')
@@ -72,6 +71,7 @@ def bid(bids_id):
     bid = Bids.query.get_or_404(bids_id)
     return render_template('bid.html', title='Comment', bid=bid)
 
+
 @main.route('/reviews', methods=['GET', 'POST'])
 def reviews():
     '''
@@ -79,13 +79,14 @@ def reviews():
     '''
     form = ReviewsForm()
     if form.validate_on_submit():
-        reviews = Reviews(description = form.description.data, scale = form.scale.data)
+        reviews = Reviews(description=form.description.data, scale=form.scale.data)
         db.session.add(reviews)
         db.session.commit()
         return redirect(url_for('main.reviews'))
     title = 'Reviews'
 
-    return render_template('reviews.html', title = title ,form_reviews = form)
+    return render_template('reviews.html', title=title, form_reviews=form)
+
 
 @main.route('/user', methods=['GET', 'POST'])
 def profile():
@@ -99,6 +100,27 @@ def profile():
     return render_template('profile/profile.html',form=form)
 
 
+
+
+@main.route("/uploader")
+def show_uploader():
+    return render_template('upload.html')
+
+
+@main.route("/upload", methods=['POST', 'GET'])
+def upload():
+    file = request.files['inputFile']
+    new_file = FileContents(name=file.filename, data=file.read())
+    db.session.add(new_file)
+    db.session.commit()
+
+    return "Succesfully uploaded " + file.filename
+
+
+@main.route("/download")
+def download():
+    file_data = FileContents.query.filter_by(id=3).first()
+    return send_file(BytesIO(file_data.data), attachment_filename='download', as_attachment=True)
 
 @main.route('/addcategory', methods=['GET', 'POST'])
 def add_category():
