@@ -13,7 +13,7 @@
 
 
     {% if current_user.role == 'freelancer' %}
-     <button>Make a bid</button>
+     <button class="btn btn-success">Bid</button>
     {{wtf.quick_form(bid_form)}}
     {% endif %}
 
