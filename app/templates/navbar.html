@@ -1,8 +1,5 @@
-{% extends 'base.html' %}
-{% block styles%}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
+{% extends 'base.html' %} {% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
 
 
 
@@ -10,17 +7,17 @@
 {% block navbar %}
 
 
-<nav class="navbar navbar-expand-md  fixed-top justify-content-right" id="nav" >
+<nav class="navbar navbar-expand-md  fixed-top justify-content-right" id="nav">
 
 
-    <a  href="/" class="navbar-brand" class="brnd"><button id="brnd" >Hustle</a></button>
+  <a href="/" class="navbar-brand" class="brnd"><button id="brnd" >Hustle</a></button>
 
   <!-- Toggler/collapsibe Button -->
- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-   <!-- Navbar links -->
+  <!-- Navbar links -->
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav ml-auto" id="vn1">
       {% if current_user.is_authenticated %}
@@ -34,15 +31,11 @@
       <li>
         <a href="{{url_for('main.post_job')}}">Post Jobs</a>
       </li>
-      {% endif %}
-
-      {% if current_user.role == 'freelancer' %}
+      {% endif %} {% if current_user.role == 'freelancer' %}
       <li>
-          <a href="{{url_for('main.show_accept')}}">View Accepted Bids</a>
+        <a href="{{url_for('main.show_accept')}}">View Accepted Bids</a>
       </li>
-      {% endif %}
-
-      {% else %}
+      {% endif %} {% else %}
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('auth.login')}}">Sign in</a>
       </li>
