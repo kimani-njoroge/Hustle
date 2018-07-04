@@ -1,4 +1,12 @@
-#!/home/mzaza/Desktop/Hustle/virtual/bin/python3.6
+<<<<<<< HEAD
+<<<<<<< HEAD
+#!/home/neville/Desktop/Hustle/virtual/bin/python3.6
+=======
+#!/home/sam/PycharmProjects/Hustle/virtual/bin/python3.6
+>>>>>>> a49364dc2eb704df4896abf143adee65fc561159
+=======
+#!/home/neville/Desktop/Hustle/virtual/bin/python3.6
+>>>>>>> development
 
 # -*- coding: utf-8 -*-
 import re
@@ -7,5 +15,5 @@ import sys
 from wheel.tool import main
 
 if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
     sys.exit(main())

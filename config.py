@@ -1,10 +1,13 @@
 import os
 
+
 class Config:
     '''
     General configuration parent class
     '''
-    pass
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://neville:quelde@localhost/hustle'
+
 
 class ProdConfig(Config):
     '''
@@ -15,19 +18,21 @@ class ProdConfig(Config):
     '''
     pass
 
+
 class TestConfig(Config):
     '''
     Testing configuration child class
 
     Args:
-        Config: The parent configuration class with General configuration settings 
+        Config: The parent configuration class with General configuration settings
     '''
     pass
+
 
 class DevConfig(Config):
     '''
     Development configuration child class
-    
+
     Args:
         Config: The parent configuration class with General configuration settings
     '''
