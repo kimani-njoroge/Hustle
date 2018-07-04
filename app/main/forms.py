@@ -45,3 +45,8 @@ class SetUpAccountForm(FlaskForm):
 
 
     submit = SubmitField('Set up Account')
+
+
+class AddCategoriesForm(FlaskForm):
+    name= StringField('Category', validators=[Required()])
+    submit = SubmitField('Add Category')

@@ -5,8 +5,8 @@ import secrets
 import os
 from . import main
 from flask_login import login_required, current_user
-from .forms import PostBidForm, PostJobForm, ReviewsForm,SetUpAccountForm, UpdateAccountForm
-from ..models import Bids, Jobs, Reviews,Profile
+from .forms import PostBidForm, PostJobForm, ReviewsForm,SetUpAccountForm
+from ..models import Bids, Jobs, Reviews
 from app import db
 from manage import app
 
@@ -97,3 +97,14 @@ def profile():
            # return redirect(url_for('main.index'))
 
     return render_template('profile/profile.html',form=form)
+
+
+
+@main.route('/addcategory', methods=['GET', 'POST'])
+def add_category():
+    form = AddCategoriesForm()
+    if form.validate_on_submit():
+        Categories = Categories(name=form.Category.data, jobs_id=jobs.id)
+        db.session.add(Categories)
+        db.session.commit()
+        return redirect(url_for('.index'))
