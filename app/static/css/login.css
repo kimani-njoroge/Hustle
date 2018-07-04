@@ -3,7 +3,7 @@
     width: 27%;
     padding: 50px;
     height:558px;
-    border:2px solid grey;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 25px;
 }
 .btn.btn-primary{
