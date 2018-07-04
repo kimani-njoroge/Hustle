@@ -90,10 +90,9 @@ def bid(bids_id):
 def profile():
     form = SetUpAccountForm()
     if form.validate_on_submit():
-       profile = Profile(bio=form.bio.data, cows=form.cows.data, user=current_user)
-       db.session.add(profile)
-       db.session.commit()
-           # return redirect(url_for('main.index'))
+        profile = Profile(bio=form.bio.data, cows=form.cows.data, user=current_user)
+        db.session.add(profile)
+        db.session.commit()
 
     return render_template('profile/profile.html',form=form)
 
@@ -133,3 +132,28 @@ def add_category():
         db.session.commit()
         return redirect(url_for('.index'))
     title = 'Categories'
+
+
+
+@main.route('/job/<int:jobs_id>', methods=['GET', 'POST'])
+def view_job(jobs_id):
+   """
+   View root page function that returns the index page and its data
+   """
+   job = Jobs.query.get_or_404(jobs_id)
+   bid_form = PostBidForm()
+   if bid_form.validate_on_submit():
+       bid = Bids(description=bid_form.description.data, cost=bid_form.cost.data, user=current_user, jobs_id=job.id)
+       db.session.add(bid)
+       db.session.commit()
+       return redirect(url_for('main.view_job', jobs_id=jobs_id))
+   title = 'Post a bid'
+   bids = Bids.query.filter_by(jobs_id=jobs_id).all()
+
+   return render_template('job.html', title=title, bid_form=bid_form, job=job, bids=bids)
+
+
+@main.route('/jobs', methods=['GET', 'POST'])
+def view_jobs():
+   jobs = Jobs.query.all()
+   return render_template('jobs.html', jobs=jobs)
