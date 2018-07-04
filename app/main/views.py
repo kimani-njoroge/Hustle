@@ -3,7 +3,7 @@ import secrets
 import os
 from . import main
 from flask_login import login_required, current_user
-from .forms import PostBidForm, PostJobForm, ReviewsForm, UpdateAccountForm
+from .forms import PostBidForm, PostJobForm, ReviewsForm
 from ..models import Bids, Jobs, Reviews, User, FileContents
 from app import db
 from manage import app
@@ -70,22 +70,6 @@ def reviews():
 def bid(bids_id):
     bid = Bids.query.get_or_404(bids_id)
     return render_template('bid.html', title='Comment', bid=bid)
-
-
-@main.route('/reviews', methods=['GET', 'POST'])
-def reviews():
-    '''
-    View root page function that returns the reviews page and its data
-    '''
-    form = ReviewsForm()
-    if form.validate_on_submit():
-        reviews = Reviews(description=form.description.data, scale=form.scale.data)
-        db.session.add(reviews)
-        db.session.commit()
-        return redirect(url_for('main.reviews'))
-    title = 'Reviews'
-
-    return render_template('reviews.html', title=title, form_reviews=form)
 
 
 @main.route('/user', methods=['GET', 'POST'])
