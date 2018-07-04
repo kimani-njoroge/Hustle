@@ -9,16 +9,17 @@ from app import db
 from manage import app
 from io import BytesIO
 
-
+# Views
 @main.route('/')
 def index():
-    """
+
+    '''
     View root page function that returns the index page and its data
-    """
+    '''
 
     title = 'Home'
 
-    return render_template('index.html', title=title)
+    return render_template('index.html', title = title )
 
 
 @main.route('/postjob', methods=['GET', 'POST'])
@@ -26,8 +27,11 @@ def index():
 def post_job():
     if current_user.role != 'client':
         abort(403)
-    """
+    '''
     View root page function that returns the index page and its data
+<<<<<<< HEAD
+    '''
+=======
     """
     job_form = PostJobForm()
 
@@ -38,21 +42,27 @@ def post_job():
         db.session.add(jobs)
         db.session.commit()
         return redirect(url_for('main.index'))
+>>>>>>> a4d7ff321f0a724bd9b481f174839e2b8dda38bf
 
-    return render_template('postjob.html', title=title, job_form=job_form)
+    title = 'Home'
+
+    return render_template('postjob.html', title = title )
 
 
-@main.route('/job/<int:jobs_id>', methods=['GET', 'POST'])
-def view_job(jobs_id):
-    """
+@main.route('/postbid/<int:id>', methods=['GET', 'POST'])
+def post_bid(id):
+    '''
     View root page function that returns the index page and its data
-    """
-    job = Jobs.query.get_or_404(jobs_id)
+    '''
     bid_form = PostBidForm()
     if bid_form.validate_on_submit():
-        bid = Bids(description=bid_form.description.data, cost=bid_form.cost.data, user=current_user, jobs_id=job.id)
+        bid = Bids(description = bid_form.description.data, cost = bid_form.cost.data, user=current_user)
         db.session.add(bid)
         db.session.commit()
+<<<<<<< HEAD
+        return redirect(url_for('auth.login'))
+    title = 'Home'
+=======
         return redirect(url_for('main.view_job', jobs_id=jobs_id))
     title = 'Post a bid'
     bids = Bids.query.filter_by(jobs_id=jobs_id).all()
@@ -64,12 +74,9 @@ def view_job(jobs_id):
 def view_jobs(category):
     jobs = Jobs.query.filter_by(category=category)
     return render_template('jobs.html', jobs=jobs)
+>>>>>>> a4d7ff321f0a724bd9b481f174839e2b8dda38bf
 
-
-@main.route("/bid/<int:bids_id>", methods=['GET', 'POST'])
-def bid(bids_id):
-    bid = Bids.query.get_or_404(bids_id)
-    return render_template('bid.html', title='Comment', bid=bid)
+    return render_template('postbid.html', title = title, bid_form = bid_form )
 
 
 @main.route("/accept/<int:bids_id>/<int:user_id>", methods=['GET', 'POST'])
@@ -93,49 +100,30 @@ def reviews():
     '''
     form = ReviewsForm()
     if form.validate_on_submit():
-        reviews = Reviews(description=form.description.data, scale=form.scale.data)
+        reviews = Reviews(description = form.description.data, scale = form.scale.data)
         db.session.add(reviews)
         db.session.commit()
         return redirect(url_for('main.reviews'))
     title = 'Reviews'
+    return render_template('reviews.html', title = title ,form_reviews = form)
 
-    return render_template('reviews.html', title=title, form_reviews=form)
-
-
-def save_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'static/profile/', picture_fn)
-    form_picture.save(picture_path)
-    current_user.image_file = picture_fn
-    image_file = url_for('static', filename='profile/' + current_user.image_file)
+@main.route("/bid/<int:bids_id>", methods=['GET', 'POST'])
+def bid(bids_id):
+    bid = Bids.query.get_or_404(bids_id)
+    return render_template('bid.html', title='Comment', bid=bid)
 
 
-@main.route("/user", methods=['GET', 'POST'])
-@login_required
+@main.route('/user', methods=['GET', 'POST'])
 def profile():
-    form =   UpdateAccountForm()
+    form = SetUpAccountForm()
     if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_picture(form.picture.data)
-
-        current_user.username = form.username.data
-        current_user.email = form.email.data
+        profile = Profile(bio=form.bio.data, cows=form.cows.data, user=current_user)
+        db.session.add(profile)
         db.session.commit()
-        return redirect(url_for('main.profile'))
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
-    image_file = url_for('static', filename='profile/' + current_user.image_file)
-    return render_template('profile/profile.html', title='Account', image_file=image_file, form=form)
+
+    return render_template('profile/profile.html',form=form)
 
 
-@main.route("/user/<int:user_id>", methods=['GET'])
-def view_account(user_id):
-    user = User.query.get_or_404(user_id)
-    image_file = url_for('static', filename='profile/' + user.image_file)
-    return render_template('profile/display_profile.html', user=user, image_file=image_file)
 
 
 @main.route("/uploader")
@@ -161,3 +149,38 @@ def download_key():
         file_data = FileContents.query.filter_by(id=key).first()
         return send_file(BytesIO(file_data.data), attachment_filename='download', as_attachment=True)
     return render_template('download.html', form=form)
+
+@main.route('/addcategory', methods=['GET', 'POST'])
+def add_category():
+    form = AddCategoriesForm()
+    if form.validate_on_submit():
+        Categories = Categories(name=form.Category.data, jobs_id=jobs.id)
+        db.session.add(Categories)
+        db.session.commit()
+        return redirect(url_for('.index'))
+    title = 'Categories'
+
+
+
+@main.route('/job/<int:jobs_id>', methods=['GET', 'POST'])
+def view_job(jobs_id):
+   """
+   View root page function that returns the index page and its data
+   """
+   job = Jobs.query.get_or_404(jobs_id)
+   bid_form = PostBidForm()
+   if bid_form.validate_on_submit():
+       bid = Bids(description=bid_form.description.data, cost=bid_form.cost.data, user=current_user, jobs_id=job.id)
+       db.session.add(bid)
+       db.session.commit()
+       return redirect(url_for('main.view_job', jobs_id=jobs_id))
+   title = 'Post a bid'
+   bids = Bids.query.filter_by(jobs_id=jobs_id).all()
+
+   return render_template('job.html', title=title, bid_form=bid_form, job=job, bids=bids)
+
+
+@main.route('/jobs', methods=['GET', 'POST'])
+def view_jobs():
+   jobs = Jobs.query.all()
+   return render_template('jobs.html', jobs=jobs)

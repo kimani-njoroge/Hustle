@@ -37,6 +37,9 @@ end
 deactivate nondestructive
 
 <<<<<<< HEAD
+set -gx VIRTUAL_ENV "/home/ephantus/Desktop/Moringa_school_projects/Core-Projects/Python/Projects/Hustle/virtual"
+=======
+<<<<<<< HEAD
 set -gx VIRTUAL_ENV "/home/neville/Desktop/Hustle/virtual"
 =======
 <<<<<<< HEAD
@@ -45,6 +48,7 @@ set -gx VIRTUAL_ENV "/home/sam/PycharmProjects/Hustle/virtual"
 set -gx VIRTUAL_ENV "/home/mzaza/Desktop/Hustle/virtual"
 >>>>>>> cd47ebcbcbdbf616168a806f01f36c0be8423b86
 >>>>>>> 71bccb9087796b5823def81cf0dc8180f1c824b9
+>>>>>>> a4d7ff321f0a724bd9b481f174839e2b8dda38bf
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

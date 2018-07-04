@@ -9,7 +9,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://mzaza:password@localhost/hustle'
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://neville:quelde@localhost/hustle'
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://midik:12345@localhost/hustle'
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ephantus:switcher12@localhost/hustle'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ephantus:switcher12@localhost/hustle'
 
 
 class ProdConfig(Config):
