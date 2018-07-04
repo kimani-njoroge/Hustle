@@ -15,9 +15,10 @@ def login():
             login_user(user, login_form.remember.data)
             return redirect(request.args.get('next') or url_for('main.index'))
 
-        flash('Invalid username or Password')
+        flash('Invalid username or Password','danger')
 
     title = "login"
+    flash('You have succesfully logged in', 'success')
     return render_template('auth/login.html', login_form=login_form, title=title)
 
 
@@ -37,4 +38,5 @@ def register():
         db.session.commit()
         return redirect(url_for('auth.login'))
         title = 'New Account'
+        flash('You have successfuly registered', 'success')
     return render_template('auth/register.html', registration_form=form)
