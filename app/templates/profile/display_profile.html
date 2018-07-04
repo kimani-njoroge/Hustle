@@ -18,6 +18,34 @@
 {% endif %}
 {% if current_user.role == 'client' and user.role != 'client' %}
 <button><a href="/download">Download file</a></button>
+<br>
+<br>
+<p>Pay down payment</p>
+<form action="your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_26oMIqspO59QBct1Muv8ZVwE"
+    data-amount=""
+    data-name="Hustle"
+    data-description="Checkout"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+</form>
+<br>
+<p>Pay full amount</p>
+<form action="your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_26oMIqspO59QBct1Muv8ZVwE"
+    data-amount=""
+    data-name="Hustle"
+    data-description="Checkout"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+</form>
+
 {% endif %}
 
 
