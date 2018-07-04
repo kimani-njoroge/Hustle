@@ -1,35 +1,61 @@
 {% extends 'base.html' %}
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+
 
 <!-- Navbar block -->
 {% block navbar %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Hustle</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+<nav class="navbar navbar-expand-md  fixed-top justify-content-right" id="nav" >
 
-            {% if current_user.is_authenticated %}
-            <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-            <li><a href="{{url_for('main.profile',users=current_user.username)}}">Profile</a></li>
-            {% if current_user.role == 'client' %}
-            <li><a href="{{url_for('main.post_job')}}">Post Job</a></li>
-            {% endif %}
-            {% if current_user.role == 'freelancer' %}
-            <li><a href="{{url_for('main.show_accept')}}">View Accepted Bids</a></li>
-            {% endif %}
-            {% else %}
-            <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
-            <li><a href="{{url_for('auth.register')}}">Register</a></li>
 
-            {%endif%}
-        </ul>
-    </div>
+    <a  href="/" class="navbar-brand" class="brnd"><button id="brnd" >Hustle</a></button>
+
+  <!-- Toggler/collapsibe Button -->
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+   <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto" id="vn1">
+      {% if current_user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('auth.logout')}}">Sign Out</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('main.profile',users=current_user.username)}}">Profile</a>
+      </li>
+      {% if current_user.role == 'client' %}
+      <li>
+        <a href="{{url_for('main.post_job')}}">Post Jobs</a>
+      </li>
+      {% endif %}
+
+      {% if current_user.role == 'freelancer' %}
+      <li>
+          <a href="{{url_for('main.show_accept')}}">View Accepted Bids</a>
+      </li>
+      {% endif %}
+
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('auth.login')}}">Sign in</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('auth.register')}}">Register</a>
+      </li>
+      {%endif%}
+
+
+    </ul>
+  </div>
+
 </nav>
 
 
 {% endblock %}
-

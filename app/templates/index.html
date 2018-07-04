@@ -1,9 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
 
-{% block styles%}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
 
 <!-- Content block -->
 {% block content %}
@@ -12,27 +9,50 @@
 
 
 <div class="container-fluid">
-    <div class="jumbotron" id="head">
-        <h1>Home Page</h1>
 
+
+  <div class="card" id="jm" style="width:100%">
+
+
+
+    <div class="card-header">
+      <h1><a href="/"> HUSTLE</a></h1></div>
+    <p class="card-text">Welcome to hustle</p>
+    {% if current_user.role == 'freelancer' %}
+    <a href="{{url_for('main.view_jobs')}}" class="btn btn-primary">View jobs</a> {% endif %}
+
+    <div class="card-body">
+      <input type="text" name="search" placeholder="Search on the website">
     </div>
-</div>
 
-<div class="panel-group">
+
+  </div>
+
+
+  <div class="panel-group">
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>Search </h4>
-        </div>
-        <div class="panel-body">
-            <input type="text" name="search" placeholder="Search on the website">
-        </div>
+      <div class="panel-heading">
+        <h4>Search </h4>
+      </div>
+      <div class="panel-body">
+        <input type="text" name="search" placeholder="Search on the website">
+      </div>
     </div>
+  </div>
+
+  <div><a href="{{url_for('main.view_jobs', category='Web_development')}}">Web development</a></div>
+  <div><a href="{{url_for('main.view_jobs', category='App_development')}}">App development</a></div>
+  <div><a href="{{url_for('main.view_jobs', category='Content_Management_Systems')}}">Content management system</a></div>
+  <div><a href="{{url_for('main.view_jobs', category='E_Commerce')}}">E-Commerce</a></div>
+
+  <button data-toggle="collapse" data-target="#demo">About</button>
+
+  <div id="demo" class="collapse">
+    Lorem ipsum dolor text....
+
+  </div>
+
+
 </div>
-
-<div><a href="{{url_for('main.view_jobs', category='Web_development')}}">Web development</a></div>
-<div><a href="{{url_for('main.view_jobs', category='App_development')}}">App development</a></div>
-<div><a href="{{url_for('main.view_jobs', category='Content_Management_Systems')}}">Content management system</a></div>
-<div><a href="{{url_for('main.view_jobs', category='E_Commerce')}}">E-Commerce</a></div>
-
 
 {% endblock %}
