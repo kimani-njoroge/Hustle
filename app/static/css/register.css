@@ -1,0 +1,33 @@
+#reg{
+    min-height: 800px;
+    /* background-color:#1d2124; */
+    text-align: center;
+    color: white;
+    
+}
+body{
+    /* background-color:#f5f7f8; */
+    background-image: url("./regimg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#reg-form{
+    text-align: center;
+    font-size: 16px;
+    
+}
+#frm{
+    background-color: rgba(114, 7, 9, 0.932);
+    /* background-color: rgba(255, 0, 4, 0.295); */
+}
+
+.d-flex{
+    width: 800px;
+}
+
+#dh{
+    font-size: 32px;
+    background-color: rgba(172, 171, 171, 0.068);
+    margin-bottom: 40px;
+}

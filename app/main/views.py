@@ -3,7 +3,7 @@ import secrets
 import os
 from . import main
 from flask_login import login_required, current_user
-from .forms import PostBidForm, PostJobForm, ReviewsForm, UpdateAccountForm, DownloadKeyForm
+from .forms import PostBidForm, PostJobForm, ReviewsForm, UpdateAccountForm, DownloadKeyForm, AddCategoriesForm
 from ..models import Bids, Jobs, Reviews, User, FileContents, Acceptbids
 from app import db
 from manage import app
@@ -29,7 +29,20 @@ def post_job():
         abort(403)
     '''
     View root page function that returns the index page and its data
+<<<<<<< HEAD
     '''
+=======
+    """
+    job_form = PostJobForm()
+
+    title = 'Post a job'
+    if job_form.validate_on_submit():
+        jobs = Jobs(title=job_form.title.data, description=job_form.description.data, duration=job_form.duration.data,
+                    technologies=job_form.technologies.data, category=job_form.category.data, user=current_user)
+        db.session.add(jobs)
+        db.session.commit()
+        return redirect(url_for('main.index'))
+>>>>>>> a4d7ff321f0a724bd9b481f174839e2b8dda38bf
 
     title = 'Home'
 
@@ -46,18 +59,32 @@ def post_bid(id):
         bid = Bids(description = bid_form.description.data, cost = bid_form.cost.data, user=current_user)
         db.session.add(bid)
         db.session.commit()
+<<<<<<< HEAD
         return redirect(url_for('auth.login'))
     title = 'Home'
+=======
+        return redirect(url_for('main.view_job', jobs_id=jobs_id))
+    title = 'Post a bid'
+    bids = Bids.query.filter_by(jobs_id=jobs_id).all()
+
+    return render_template('job.html', title=title, bid_form=bid_form, job=job, bids=bids)
+
+
+@main.route('/jobs/<string:category>', methods=['GET', 'POST'])
+def view_jobs(category):
+    jobs = Jobs.query.filter_by(category=category)
+    return render_template('jobs.html', jobs=jobs)
+>>>>>>> a4d7ff321f0a724bd9b481f174839e2b8dda38bf
 
     return render_template('postbid.html', title = title, bid_form = bid_form )
 
 
-@main.route("/accept/<int:bids_id>/<int:id>", methods=['GET', 'POST'])
-def accept(bids_id,id):
+@main.route("/accept/<int:bids_id>/<int:user_id>", methods=['GET', 'POST'])
+def accept(bids_id, id):
     accepted_bid = Acceptbids(accepted_bid=bids_id, user=current_user, jobs_id=id)
     db.session.add(accepted_bid)
     db.session.commit()
-    return "Accepted"
+    return '<h1>Bid accepted</h1><a href="/">Go back home</a>'
 
 
 @main.route("/accepted")
@@ -111,7 +138,7 @@ def upload():
     db.session.add(new_file)
     db.session.commit()
 
-    return "Succesfully uploaded " + file.filename + "Your secret key is " + str(new_file.id)
+    return "Succesfully uploaded " + file.filename + " Your secret key is " + str(new_file.id)
 
 
 @main.route('/download', methods=['GET', 'POST'])

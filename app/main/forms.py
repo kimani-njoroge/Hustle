@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 from wtforms import StringField, TextAreaField, SubmitField, IntegerField, ValidationError, validators
+=======
+from flask_login import current_user
+from wtforms import StringField, TextAreaField, SubmitField, IntegerField, ValidationError, validators, SelectField
+>>>>>>> a4d7ff321f0a724bd9b481f174839e2b8dda38bf
 from flask_wtf import FlaskForm
 from wtforms.validators import Required, Length, Email
 from flask_wtf.file import FileField, FileAllowed
@@ -25,6 +30,10 @@ class PostJobForm(FlaskForm):
 
     technologies = StringField('technologies', validators=[Required()])
 
+<<<<<<< HEAD
+=======
+    category = SelectField('Category', choices=[('Web_development', "Web development"), ("App_development", "App development"), ("Content_Management_Systems", "Content Management Systems"), ("E_Commerce", "E-Commerce")])
+>>>>>>> a4d7ff321f0a724bd9b481f174839e2b8dda38bf
 
     submit = SubmitField('Post')
 
@@ -74,9 +83,18 @@ class AcceptbidForm(FlaskForm):
 
 
 class DownloadKeyForm(FlaskForm):
+<<<<<<< HEAD
     download_key = IntegerField('Your download key')
     submit = SubmitField('Submit')
 
 class AddCategoriesForm(FlaskForm):
     name= StringField('Category', validators=[Required()])
+=======
+    download_key = IntegerField('Enter your download key')
+    submit = SubmitField('Download')
+
+
+class AddCategoriesForm(FlaskForm):
+    name = StringField('Category', validators=[Required()])
+>>>>>>> a4d7ff321f0a724bd9b481f174839e2b8dda38bf
     submit = SubmitField('Add Category')

@@ -7,6 +7,19 @@
 <p>{{user.email}}</p>
 <p>{{user.role}}</p>
 <p> <img class="" src="{{ image_file }}"></p>
+{% if current_user.role == 'freelancer' and user.role != 'freelancer' %}
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="inputFile">File input</label>
+        <input type="file" name="inputFile">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endif %}
+{% if current_user.role == 'client' and user.role != 'client' %}
+<button><a href="/download">Download file</a></button>
+{% endif %}
+
 
 {% endblock %}
 

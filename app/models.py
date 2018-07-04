@@ -46,9 +46,9 @@ class Jobs(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     duration = db.Column(db.String, nullable=False)
     technologies = db.Column(db.String, nullable=False)
+    category = db.Column(db.String, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     bids = db.relationship('Bids', backref='jobs', lazy='dynamic')
-    categories = db.relationship('Categories', backref='jobs', lazy='dynamic')
     acceptbids = db.relationship('Acceptbids', backref='jobs', lazy='dynamic')
 
 
@@ -65,12 +65,6 @@ class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(1000), nullable=False)
     scale = db.Column(db.Integer)
-
-
-class Categories(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    jobs_id = db.Column(db.Integer, db.ForeignKey("jobs.id"))
 
 
 class Acceptbids(db.Model):
