@@ -1,4 +1,4 @@
-{% extends 'bootstrap/base.html'%}
+{% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
@@ -8,20 +8,26 @@
     <small class="text-muted">{{ job.date_posted.strftime('%Y-%m-%d')}}</small>
     <p>{{job.duration}}</p>
     <p>{{job.technologies}}</p>
-    <p>{{job.user.username}}</p>
+     <p>{{job.category}}</p>
+    <p><a href="{{url_for('main.view_account', user_id=job.user.id)}}">{{job.user.username}}</a></p>
+
 
     {% if current_user.role == 'freelancer' %}
+     <button>Make a bid</button>
     {{wtf.quick_form(bid_form)}}
     {% endif %}
 
     <div>
-        {% if job.user == current_user %}
+        {% if job.user == current_user or current_user.role == 'freelancer' %}
+
         {%for bid in bids %}
         <div class="panel">
+            {% if current_user.username == bid.user.username or job.user == current_user %}
             <p><a href="{{url_for('main.view_account', user_id=bid.user.id)}}"> {{bid.user.username}}</a> bid:</p>
             <p> &nbsp; {{bid.cost}} $</p>
             <p>{{bid.description}}</p>
             <a href="{{url_for('main.bid', bids_id=bid.id)}}">&nbsp; <button class="btn">View bid</button></a>
+            {% endif %}
         </div>
         {%endfor%}
         {% endif %}

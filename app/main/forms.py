@@ -1,5 +1,5 @@
 from flask_login import current_user
-from wtforms import StringField, TextAreaField, SubmitField, IntegerField, ValidationError, validators
+from wtforms import StringField, TextAreaField, SubmitField, IntegerField, ValidationError, validators, SelectField
 from flask_wtf import FlaskForm
 from wtforms.validators import Required, Length, Email
 from flask_wtf.file import FileField, FileAllowed
@@ -27,6 +27,8 @@ class PostJobForm(FlaskForm):
     duration = StringField('duration', validators=[Required()])
 
     technologies = StringField('technologies', validators=[Required()])
+
+    category = SelectField('Category', choices=[('Web_development', "Web development"), ("App_development", "App development"), ("Content_Management_Systems", "Content Management Systems"), ("E_Commerce", "E-Commerce")])
 
     submit = SubmitField('Post')
 
@@ -68,5 +70,10 @@ class AcceptbidForm(FlaskForm):
 
 
 class DownloadKeyForm(FlaskForm):
-    download_key = IntegerField('Your download key')
-    submit = SubmitField('Submit')
+    download_key = IntegerField('Enter your download key')
+    submit = SubmitField('Download')
+
+
+class AddCategoriesForm(FlaskForm):
+    name = StringField('Category', validators=[Required()])
+    submit = SubmitField('Add Category')

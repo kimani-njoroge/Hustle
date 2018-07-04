@@ -11,29 +11,28 @@
 <title> {{ title }} </title>
 
 
-    <div class="container-fluid">
-        <div class="jumbotron" id="head">
-            <h1>Home Page</h1>
-            
-    <h1>Home Page</h1>
-    {% if current_user.role == 'freelancer' %}
-    <a href="{{url_for('main.view_jobs')}}"><button class="btn">View Jobs</button></a>
-    {% endif %}
-            
-            </div> 
-    </div>
+<div class="container-fluid">
+    <div class="jumbotron" id="head">
+        <h1>Home Page</h1>
 
-    <div class="panel-group">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4>Search </h4>
-            </div>
-          <div class="panel-body">
-              <input type="text" name="search" placeholder="Search on the website">
-          </div>
+    </div>
+</div>
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Search </h4>
+        </div>
+        <div class="panel-body">
+            <input type="text" name="search" placeholder="Search on the website">
         </div>
     </div>
+</div>
 
+<div><a href="{{url_for('main.view_jobs', category='Web_development')}}">Web development</a></div>
+<div><a href="{{url_for('main.view_jobs', category='App_development')}}">App development</a></div>
+<div><a href="{{url_for('main.view_jobs', category='Content_Management_Systems')}}">Content management system</a></div>
+<div><a href="{{url_for('main.view_jobs', category='E_Commerce')}}">E-Commerce</a></div>
 
 
 {% endblock %}
