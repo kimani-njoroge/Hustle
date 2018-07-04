@@ -5,9 +5,17 @@
     color: white;
     
 }
+
 #reg-form{
     text-align: center;
-    font-size: 25px;
+    font-size: 16px;
+    
+}
+#frm{
+    background-color: rgba(255, 0, 4, 0.295);
+}
+.form-control{
+    background: rgba(235, 229, 229, 0.5);
 }
 .jumbotron{
     background-color: rgba(217, 84, 79, 0.932);
@@ -23,4 +31,66 @@
 .row{
     padding-top: 50px;
 
+}
+
+.navbar-toggler { 
+    display:block !important;
+}
+/* .navbar-collapse.collapse {
+    display: none !important ;
+}  */
+
+
+input[type=text] {
+    width: 200px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+#jm{
+    background-image: url(./hustlehome.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+    color: rgba(255, 0, 4, 0.295);
+    height: 300px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+#srch{
+    background-color: darkgray;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color:rgba(255, 0, 4, 0.295);
+}
+/* nav {
+    display: flex;
+    list-style: none;
+    background-color: rgba(255, 0, 4, 0.295)
+  } */
+
+
+#vn1{ 
+    /* list-style:none;
+    margin:10px; */
+    float: right; 
+  }
+#brnd :hover{
+    color: rgba(255, 0, 4, 0.685);
+}
+#brnd :link{
+    color: rgba(255, 0, 4, 0.349);
+}
+#brnd{
+    background-color: rgba(0, 0, 0, 0.014)
 }
