@@ -138,7 +138,7 @@ def upload():
     db.session.add(new_file)
     db.session.commit()
 
-    return "Succesfully uploaded " + file.filename + " Your secret key is " + str(new_file.id)
+    return "Succesfully uploaded " + file.filename + " Your secret key is " + str(new_file.id) + '  <p><a href="/">Go back home</a></p>'
 
 
 @main.route('/download', methods=['GET', 'POST'])

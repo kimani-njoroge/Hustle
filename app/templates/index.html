@@ -18,8 +18,6 @@
     <div class="card-header">
       <h1><a href="/"> HUSTLE</a></h1></div>
     <p class="card-text">Welcome to hustle</p>
-    {% if current_user.role == 'freelancer' %}
-    <a href="{{url_for('main.view_jobs')}}" class="btn btn-primary">View jobs</a> {% endif %}
 
     <div class="card-body">
       <input type="text" name="search" placeholder="Search on the website">
@@ -28,17 +26,6 @@
 
   </div>
 
-
-  <div class="panel-group">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>Search </h4>
-      </div>
-      <div class="panel-body">
-        <input type="text" name="search" placeholder="Search on the website">
-      </div>
-    </div>
-  </div>
 
   <div><a href="{{url_for('main.view_jobs', category='Web_development')}}">Web development</a></div>
   <div><a href="{{url_for('main.view_jobs', category='App_development')}}">App development</a></div>
