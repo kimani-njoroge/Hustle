@@ -115,7 +115,7 @@ def save_picture(form_picture):
 @main.route("/user", methods=['GET', 'POST'])
 @login_required
 def profile():
-    form = UpdateAccountForm()
+    form =   UpdateAccountForm()
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
