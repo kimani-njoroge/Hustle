@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-#!/home/sam/PycharmProjects/Hustle/virtual/bin/python3.6
-=======
-#!/home/mzaza/Desktop/Hustle/virtual/bin/python3.6
->>>>>>> cd47ebcbcbdbf616168a806f01f36c0be8423b86
-
-# -*- coding: utf-8 -*-
-import re
+#!/home/midik/Documents/NewHustle/Hustle/virtual/bin/python3.6
+# EASY-INSTALL-ENTRY-SCRIPT: 'alembic==0.9.9','console_scripts','alembic'
+__requires__ = 'alembic==0.9.9'
 import sys
-
-from alembic.config import main
+from pkg_resources import load_entry_point
 
 if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
+    sys.exit(
+        load_entry_point('alembic==0.9.9', 'console_scripts', 'alembic')()
+    )
