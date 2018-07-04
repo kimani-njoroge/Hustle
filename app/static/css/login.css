@@ -1,11 +1,9 @@
 .cot{
-    background-color: lightskyblue;
     margin: auto;
     width: 27%;
     padding: 50px;
     height:558px;
-}
-.form-control{
-    background: rgba(0, 0, 0, 0.5);
+    border:2px solid grey;
+    border-radius: 25px;
 }
 
