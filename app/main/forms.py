@@ -66,3 +66,7 @@ class UpdateAccountForm(FlaskForm):
 class AcceptbidForm(FlaskForm):
     submit = SubmitField('Accept Bid')
 
+
+class DownloadKeyForm(FlaskForm):
+    download_key = IntegerField('Your download key')
+    submit = SubmitField('Submit')

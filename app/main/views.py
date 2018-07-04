@@ -3,8 +3,8 @@ import secrets
 import os
 from . import main
 from flask_login import login_required, current_user
-from .forms import PostBidForm, PostJobForm, ReviewsForm, UpdateAccountForm
-from ..models import Bids, Jobs, Reviews, User, FileContents
+from .forms import PostBidForm, PostJobForm, ReviewsForm, UpdateAccountForm, DownloadKeyForm
+from ..models import Bids, Jobs, Reviews, User, FileContents, Acceptbids
 from app import db
 from manage import app
 from io import BytesIO
@@ -72,6 +72,20 @@ def bid(bids_id):
     return render_template('bid.html', title='Comment', bid=bid)
 
 
+@main.route("/accept/<int:bids_id>/<int:id>", methods=['GET', 'POST'])
+def accept(bids_id,id):
+    accepted_bid = Acceptbids(accepted_bid=bids_id, user=current_user, jobs_id=id)
+    db.session.add(accepted_bid)
+    db.session.commit()
+    return "Accepted"
+
+
+@main.route("/accepted")
+def show_accept():
+    bids = Acceptbids.query.all()
+    return render_template("accepted.html", bids=bids)
+
+
 @main.route('/reviews', methods=['GET', 'POST'])
 def reviews():
     '''
@@ -136,10 +150,14 @@ def upload():
     db.session.add(new_file)
     db.session.commit()
 
-    return "Succesfully uploaded " + file.filename
+    return "Succesfully uploaded " + file.filename + "Your secret key is " + str(new_file.id)
 
 
-@main.route("/download")
-def download():
-    file_data = FileContents.query.filter_by(id=3).first()
-    return send_file(BytesIO(file_data.data), attachment_filename='download', as_attachment=True)
+@main.route('/download', methods=['GET', 'POST'])
+def download_key():
+    form = DownloadKeyForm()
+    if form.validate_on_submit():
+        key = form.download_key.data
+        file_data = FileContents.query.filter_by(id=key).first()
+        return send_file(BytesIO(file_data.data), attachment_filename='download', as_attachment=True)
+    return render_template('download.html', form=form)

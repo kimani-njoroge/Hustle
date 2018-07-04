@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for bid in bids %}
+
+<p>{{bid.accepted_bid}}</p>
+<p>{{bid.user.username}}</p>
+<p>{{bid.jobs.title}}</p>
+
+{% endfor %}
+
+
+{% endblock %}
