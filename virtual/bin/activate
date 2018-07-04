@@ -38,6 +38,7 @@ deactivate () {
 deactivate nondestructive
 
 VIRTUAL_ENV="/home/midik/Documents/NewHustle/Hustle/virtual"
+
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
