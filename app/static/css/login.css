@@ -6,4 +6,11 @@
     border:2px solid grey;
     border-radius: 25px;
 }
-
+.btn.btn-primary{
+  color: #17a2b8;
+  background-color: transparent;
+  background-image: none;
+  border-color: #17a2b8;
+  padding-right: 60px;
+  text-align: center;
+}
