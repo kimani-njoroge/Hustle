@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+#!/home/sam/PycharmProjects/Hustle/virtual/bin/python
+=======
 #!/home/mzaza/Desktop/Hustle/virtual/bin/python
+>>>>>>> cd47ebcbcbdbf616168a806f01f36c0be8423b86
 
 import sys
 import getopt
