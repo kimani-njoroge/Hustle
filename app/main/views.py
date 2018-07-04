@@ -108,3 +108,4 @@ def add_category():
         db.session.add(Categories)
         db.session.commit()
         return redirect(url_for('.index'))
+    title = 'Categories'
