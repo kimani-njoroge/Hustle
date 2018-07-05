@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export SECRET_KEY="moringa12"
-export DATABASE_URL='postgres://zpndeqmdejoqll:c799a1fb81eaa49b5f5a0a120802027ab65e9e1956f272476464858ea1997dda@ec2-54-243-61-173.compute-1.amazonaws.com:5432/dfi1fvvkbso40n'
+export DATABASE_URL='postgres://lgjghoehrxfdcj:344b0b7ab4dc803a8244fee51f35286d053ee3432ecea5bbd809bf19a5f489cf@ec2-50-16-231-2.compute-1.amazonaws.com:5432/d5d1q5hd11chbi'
+
 
 python manage.py server
