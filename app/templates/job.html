@@ -47,7 +47,7 @@
         {% if job.user == current_user or current_user.role == 'freelancer' %}
 
         {%for bid in bids %}
-        <div class="card bid" style="width: 16rem">
+        <div class="card bid" style="width: 20rem">
             {% if current_user.username == bid.user.username or job.user == current_user %}
             <p><a class="card-link" href="{{url_for('main.view_account', user_id=bid.user.id)}}"><h5>{{bid.user.username}}</a> bid:</h5></p>
             <hr>
