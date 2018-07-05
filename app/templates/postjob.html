@@ -1,18 +1,27 @@
 {% extends 'bootstrap/base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 {% block styles%}
-    {{ super() }}
-
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-
-
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/postjob.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %} 
 {% block content %}
-<div class="col-md-4"> </div>
-<div class="col-md-8">
+<div class="container-fluid" id="postjobcnt">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="card">
+      <div class="col-md-6">
 
-  {{wtf.quick_form(job_form)}}
+        {{wtf.quick_form(job_form)}}
 
- </div>
+      </div>
+
+    </div>
+    <div class="col-md-3">
+    </div>
+
+  </div>
+</div>
 
 {% endblock%}
