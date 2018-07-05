@@ -6,8 +6,8 @@
     
 }
 body{
-    /* background-color:#f5f7f8; */
-    background-image: url("./regimg.jpg");
+    background-color:#ffffff;
+    /* background-image: url("./regimg.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -18,8 +18,12 @@ body{
     
 }
 #frm{
-    background-color: rgba(114, 7, 9, 0.932);
-    /* background-color: rgba(255, 0, 4, 0.295); */
+    margin: auto;
+    width: 400px;
+    padding: 50px;
+    height:558px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
 }
 
 .d-flex{

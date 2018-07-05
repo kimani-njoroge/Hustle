@@ -3,27 +3,28 @@
 <!-- Navbar block -->
 {% block navbar %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md  fixed-top" id="nv">
     <a class="navbar-brand" href="/">Hustle</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto">
 
             {% if current_user.is_authenticated %}
-            <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-            <li><a href="{{url_for('main.profile',users=current_user.username)}}">Profile</a></li>
+            <li class="nav-item"><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+            <li class="nav-item"><a href="{{url_for('main.profile',users=current_user.username)}}">Profile</a></li>
             {% if current_user.role == 'client' %}
-            <li><a href="{{url_for('main.post_job')}}">Post Job</a></li>
+            <li class="nav-item"><a href="{{url_for('main.post_job')}}">Post Job</a></li>
             {% endif %}
             {% if current_user.role == 'freelancer' %}
-            <li><a href="{{url_for('main.show_accept')}}">View Accepted Bids</a></li>
+            <li class="nav-item"><a href="{{url_for('main.show_accept')}}">View Accepted Bids</a></li>
             {% endif %}
             {% else %}
-            <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
-            <li><a href="{{url_for('auth.register')}}">Register</a></li>
+            <li class="nav-item"><a href="{{url_for('auth.login')}}">Sign in</a></li>
+
+            <li class="nav-item"><a href="{{url_for('auth.register')}}">Register</a></li>
 
             {%endif%}
         </ul>
@@ -32,3 +33,4 @@
 
 
 {% endblock %}
+navbar-expand-lg

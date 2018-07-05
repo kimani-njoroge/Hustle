@@ -94,3 +94,37 @@ input[type=text]:focus {
 #brnd{
     background-color: rgba(0, 0, 0, 0.014)
 }
+#nv{
+    background-color: rgba(0, 0, 0, 0)
+}
+#cthd{
+    text-align: center;
+}
+/* #demo{
+    padding-bottom: 100px;
+} */
+.card-deck{
+    padding-bottom: 100px
+}
+
+
+/* css for carousel */
+.lpo{
+    width: 100%;
+    /* height: 80vh; */
+}
+#lops{
+    text-align: center;
+}
+.carousel-inner{
+    height: 70vh;
+}
+
+.navbar-brand{
+    color: black;
+    text-decoration: black;
+}
+/* #abt{
+    text-align: center;
+    background-color: darkgrey;
+} */
