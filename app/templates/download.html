@@ -1,5 +1,6 @@
 {% extends 'base.html'%}
-{% import 'bootstrap/wtf.html' as wtf%}
+{% import 'bootstrap/wtf.html' as wtf%}{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/download.css')}}"> {% endblock %}
 
  {% block styles%}
         {{ super() }}
@@ -12,8 +13,20 @@
 
 
 {% block content %}
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="contaner DOWNLOAD">
+        <div class="card">
+          {{ wtf.quick_form(form) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
 
-{{ wtf.quick_form(form) }}
+
 
 {% endblock %}
-
