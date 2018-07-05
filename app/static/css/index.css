@@ -96,15 +96,72 @@ input[type=text]:focus {
 }
 .footer{
     background-color: rgba(255, 255, 255, 0.3);
-
-
 }
-.row{
+.one{
     text-align: center;
     background-color: #1d2124;
     color: white;
     padding-bottom: 20px;
+    margin-top: 20px;
 }
 .col-md-4{
     border-right: 2px solid white;
+}
+#nv{
+    background-color: rgba(78, 78, 78, 0.219)
+}
+#cthd{
+    text-align: center;
+}
+/* #demo{
+    padding-bottom: 100px;
+} */
+.card-deck{
+    padding-bottom: 50px
+}
+
+
+/* css for carousel */
+.lpo{
+    width: 100%;
+    /* height: 80vh; */
+}
+#lops{
+    text-align: center;
+}
+.carousel-inner{
+    height: 70vh;
+}
+
+.navbar-brand{
+    color: rgb(255, 255, 255);
+    text-decoration: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.nvb{
+    color: rgb(255, 255, 255);
+    text-decoration: rgb(255, 255, 255);
+    text-decoration-line: none;
+    padding-right: 10px;
+    font-weight: bold;
+}
+.hd{
+    text-align: center;
+}
+.col-md-6{
+    border-right: 2px solid grey;
+    text-align: center;
+}
+.row{
+    padding-bottom: 20px;
+}
+.category{
+    text-align: center;
+    color: white;
+}
+body{
+    max-width:100%;
+    overflow-x: hidden;
+
 }
