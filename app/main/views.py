@@ -72,7 +72,7 @@ def bid(bids_id):
     return render_template('bid.html', title='Comment', bid=bid)
 
 
-@main.route("/accept/<int:bids_id>/<int:user_id>", methods=['GET', 'POST'])
+@main.route("/accept/<int:bids_id>/<int:id>", methods=['GET', 'POST'])
 def accept(bids_id, id):
     accepted_bid = Acceptbids(accepted_bid=bids_id, user=current_user, jobs_id=id)
     db.session.add(accepted_bid)

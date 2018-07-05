@@ -1,0 +1,28 @@
+.container-fluid{
+    font-family: "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #333333;
+    margin-top: 2rem;
+}
+
+div.card{
+    padding: 1rem;
+    border-radius: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+hr{
+    padding: 1rem;
+}
+
+.bid{
+    box-shadow: 2px 4px 12px 2px #DCDCDC;
+    float:left;
+}
+#bid{
+    text-align: center;
+}
+
+#cen{
+    text-align: center;
+}
