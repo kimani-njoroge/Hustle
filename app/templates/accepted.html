@@ -3,13 +3,32 @@
 
 {% block content %}
 
-{% for bid in bids %}
+    {% block styles%}
+        {{ super() }}
+        <link rel="stylesheet" href="{{url_for('static',filename='css/accepted.css')}}">
 
-<p>{{bid.accepted_bid}}</p>
-<p><a href="{{url_for('main.view_account', user_id=bid.user.id)}}">{{bid.user.username}}</a></p>
-<p>{{bid.jobs.title}}</p>
+        <link href="https://fonts.googleapis.com/css?family=Habibi" rel="stylesheet">
+    {% endblock %}
 
-{% endfor %}
+    <div class="card-group">
+        {% for bid in bids %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <p>{{bid.jobs.title}}</p>
+                        <hr>
+                        <p><a href="{{url_for('main.view_account', user_id=bid.user.id)}}">{{bid.user.username}}</a></p>
+                    </div>
+            {#        <p>{{bid.accepted_bid}}</p>#}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+
+
 
 
 {% endblock %}
