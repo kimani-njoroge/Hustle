@@ -32,6 +32,8 @@ body{
 
 #dh{
     font-size: 32px;
-    background-color: rgba(172, 171, 171, 0.068);
+    text-align: center;
+    color: black;
     margin-bottom: 40px;
+
 }
