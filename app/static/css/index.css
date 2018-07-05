@@ -36,19 +36,8 @@
 .navbar-toggler { 
     display:block !important;
 }
-/* .navbar-collapse.collapse {
-    display: none !important ;
-}  */
 
-
-input[type=text] {
-    width: 200px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
+input[type=text]{
     width: 100%;
 }
 #jm{

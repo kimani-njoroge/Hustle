@@ -77,7 +77,7 @@ def accept(bids_id, id):
    accepted_bid = Acceptbids(accepted_bid=bids_id, user=current_user, jobs_id=id)
    db.session.add(accepted_bid)
    db.session.commit()
-   return '<h1>Bid accepted</h1><a href="/">Go back home</a>'
+   return '<h1>Bid accepted</h1><p><a href="/">Go back home</a></p>'
 
 
 @main.route("/accepted")
@@ -150,7 +150,7 @@ def upload():
     db.session.add(new_file)
     db.session.commit()
 
-    return "Succesfully uploaded " + file.filename + " Your secret key is " + str(new_file.id)
+    return "Succesfully uploaded " + file.filename + " Your secret key is " + str(new_file.id) + "<p><a href="/">Go back home</a></p>"
 
 
 @main.route('/download', methods=['GET', 'POST'])
