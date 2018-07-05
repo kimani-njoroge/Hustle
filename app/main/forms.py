@@ -20,13 +20,13 @@ class PostJobForm(FlaskForm):
     '''
     Function to create a wtf form for posting a job
     '''
-    title = StringField('title', validators=[Required()])
+    title = StringField('Title', validators=[Required()])
 
-    description = StringField('description', validators=[Required()])
+    description = StringField('Description', validators=[Required()])
 
-    duration = StringField('duration', validators=[Required()])
+    duration = StringField('Duration', validators=[Required()])
 
-    technologies = StringField('technologies', validators=[Required()])
+    technologies = StringField('Technologies', validators=[Required()])
 
     category = SelectField('Category', choices=[('Web_development', "Web development"), ("App_development", "App development"), ("Content_Management_Systems", "Content Management Systems"), ("E_Commerce", "E-Commerce")])
 
@@ -72,4 +72,3 @@ class AcceptbidForm(FlaskForm):
 class DownloadKeyForm(FlaskForm):
     download_key = IntegerField('Enter your download key')
     submit = SubmitField('Download')
-
