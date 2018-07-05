@@ -1,38 +1,64 @@
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/job.css')}}">
+{% endblock %}
+
 {% block content %}
 <div class="container-fluid">
-    <h1>{{job.title}}</h1>
-    <p>{{job.description}}</p>
-    <small class="text-muted">{{ job.date_posted.strftime('%Y-%m-%d')}}</small>
-    <p>{{job.duration}}</p>
-    <p>{{job.technologies}}</p>
-     <p>{{job.category}}</p>
-    <p><a href="{{url_for('main.view_account', user_id=job.user.id)}}">{{job.user.username}}</a></p>
-
+    <div class="card">
+        <h1>{{job.title|capitalize}}</h1>
+        <small class="text-muted"> Posted on :{{ job.date_posted.strftime('%Y-%m-%d')}} | Category : {{job.category}}</small>
+        <hr
+        <p>Descritption:<br>&nbsp;{{job.description}}</p>
+        <p>Expected delivery time : {{job.duration}}</p>
+        <p>Technologies to be used : {{job.technologies|capitalize}}</p>
+        <p>Job posted by: <a class="card-link" href="{{url_for('main.view_account', user_id=job.user.id)}}">{{job.user.username}}</a></p>
+    </div>
 
     {% if current_user.role == 'freelancer' %}
-     <button>Make a bid</button>
-    {{wtf.quick_form(bid_form)}}
+    <div id="bid">
+        <button data-toggle="collapse" class="btn btn-primary" data-target="#demo">Make a bid</button>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div >
+                <div id="demo" class="collapse">
+                    <br>
+                    <div class="p-3 card">
+                        {{wtf.quick_form(bid_form)}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <br>
     {% endif %}
+
 
     <div>
         {% if job.user == current_user or current_user.role == 'freelancer' %}
 
         {%for bid in bids %}
-        <div class="panel">
+        <div class="card bid" style="width: 20rem">
             {% if current_user.username == bid.user.username or job.user == current_user %}
-            <p><a href="{{url_for('main.view_account', user_id=bid.user.id)}}"> {{bid.user.username}}</a> bid:</p>
-            <p> &nbsp; {{bid.cost}} $</p>
-            <p>{{bid.description}}</p>
-            <a href="{{url_for('main.bid', bids_id=bid.id)}}">&nbsp; <button class="btn">View bid</button></a>
+            <p><a class="card-link" href="{{url_for('main.view_account', user_id=bid.user.id)}}"><h5>{{bid.user.username}}</a> bid:</h5></p>
+            <hr>
+            <p>$ {{bid.cost}}</p>
+            <p>Bid description: <br>&nbsp;{{bid.description}}</p>
+            <a class="card-link" href="{{url_for('main.bid', bids_id=bid.id)}}">&nbsp;<button class="btn">View bid</button></a>
             {% endif %}
         </div>
+        &nbsp;
         {%endfor%}
         {% endif %}
     </div>
 </div>
 {% endblock%}
-
-
