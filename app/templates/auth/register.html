@@ -3,17 +3,18 @@
 
 {% block styles%}
 {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/register.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/register.css')}}">
+{#    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">#}
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid" id='reg' >
 
   
-  <div class="card" id="dh">
-      <div class="card-header text-dark"> 
+  <div  id="dh">
+
         <h1><strong>Sign Up</strong></h1>
-      </div>
+
   </div>
   <div class="row justify-content-center align-items-center">
     

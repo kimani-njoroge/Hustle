@@ -1,6 +1,7 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block styles%} {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 {% endblock %}
 
 
@@ -57,48 +58,70 @@
         <div class="card "><a href="{{url_for('main.view_jobs', category='Web_development')}}">
             <img class="card-img-top" src="../static/css/jm.jpeg" alt="Card image">
           <div class="card-body cbc  card-img-overlay">
-            <p class="card-text"><div><strong>Web development</strong></div></p>
+            <p class="card-text"><div class="category"><strong>Web development</strong></div></p>
           </div>
         </a></div>
         <div class="card "><a href="{{url_for('main.view_jobs', category='App_development')}}">
             <img class="card-img-top" src="../static/css/webdev3.jpg" alt="Card image">
           <div class="card-body cbc card-img-overlay">
-            <p class="card-text"><div><strong>App development</strong></div></p>
+            <p class="card-text"><div class="category"><strong>App development</strong></div></p>
           </div>
         </a></div>
         <div class="card"><a href="{{url_for('main.view_jobs', category='Content_Management_Systems')}}">
             <img class="card-img-top" src="../static/css/cat1.jpg" alt="Card image">
           <div class="card-body cbc card-img-overlay">
-            <p class="card-text"><div><strong>Content management system</strong></div></p>
+            <p class="card-text"><div class="category"><strong>Content management system</strong></div></p>
           </div>
         </a></div>
         <div class="card "><a href="{{url_for('main.view_jobs', category='E_Commerce')}}">
             <img class="card-img-top" src="../static/css/cat2.jpg" alt="Card image">
           <div class="card-body cbc card-img-overlay">
-            <p class="card-text"><div><strong>E-Commerce</strong></div></p>
+            <p class="card-text"><div class="category"><strong>E-Commerce</strong></div></p>
           </div>
         </a></div> 
       </div>
-    
- 
-<div class="abtc">
-          <h3>About us</h3>
+    </div>
+    <div class="card">
+    <h3 class="hd">About us</h3>
+        <div class="row">
+
+            <div class="col-md-6">
+                <p>Just a few days ago, we embarked on journey to brain storm an idea<br>
+                    to make the average kenyan youth make a coin from an online site in <br>
+                    the comfort their homes. Have you been asked what you do for a living <br>
+                    and didn't know what to say? Are you so busy that you couldn't complete <br>
+                    some research? Have you been surfing the net for something to bring <br>
+                    food on the table ?</p>
+                <p>WE ARE HERE TO HELP</p>
+            </div>
+            <div class="col-md-6">
+                <p class="first">With just internet access and a computer, You are able to earn from our site. <br>
+                    While there are many freelancing providers, we are here to offer a unique <br>
+                    feature that has not been provided before. As a client, you are able to choose<br>
+                    from the bids placed by freelancers who understands your topic better, fits <br>
+                    your budget and meets your expectations</p>
+                <p>Try us and see what we have to offer..</p>
+            </div>
         </div>
-          <div id="tba">
-          <div class="card" >
-            <div id="abt" >
-             <p>Just a few days ago, we embarked on journey to brain storm an idea to make the average kenyan youth make a coin from an online site in the comfort their homes. Have you been asked what you do for a living and didn't know what to say? Are you so busy that you couldn't complete some research? Have you been surfing the net for something to bring food on the table ?</p>
-                <p><strong>WE ARE HERE TO HELP</strong></p>
-            <p>With just internet access and a computer, You are able to earn from our site. While there are many freelancing providers, we are here to offer a unique feature that has not been provided before. As a client, you are able to choose from the bids placed by freelancers who understands your topic better, fits your budget and meets your expectations</p>
-            <p>Try us and see what we have to offer..</p>
-          </div>
-        </div>
-        </div>
-      </div>
     </div>
 
 
-</div>
 
+    <div class="foot">
+            <div class="row one">
+                <div class="col-md-4"><p>HustleInc Contacts</p></div>
+                <div class="col-md-4"><p><span><i class="fas fa-envelope"></i></span>&nbsp; admin@hustle.com</p></div>
+                <div class="col-md-4"><p><span><i class="fas fa-phone-square"></i></span>&nbsp; 0712345678</p></div>
+            </div>
+        </div>
+    </div>
+
+{##}
+{##}
+{##}
+{#</div>#}
 
 {% endblock %}
+
+
+
