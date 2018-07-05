@@ -1,53 +1,77 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/display_profile.css')}}"> {% endblock %}
 
 
 
 {% block content %}
-<p>{{user.username}}</p>
-<p>{{user.email}}</p>
-<p>{{user.role}}</p>
-<p> <img class="" src="{{ image_file }}"></p>
-{% if current_user.role == 'freelancer' and user.role != 'freelancer' %}
-<form method="POST" action="/upload" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="inputFile">File input</label>
-        <input type="file" name="inputFile">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-</form>
-{% endif %}
-{% if current_user.role == 'client' and user.role != 'client' %}
-<button><a href="/download">Download file</a></button>
-<br>
-<br>
-<p>Pay down payment</p>
-<form action="your-server-side-code" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_26oMIqspO59QBct1Muv8ZVwE"
-    data-amount=""
-    data-name="Hustle"
-    data-description="Checkout"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto">
-  </script>
-</form>
-<br>
-<p>Pay full amount</p>
-<form action="your-server-side-code" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_26oMIqspO59QBct1Muv8ZVwE"
-    data-amount=""
-    data-name="Hustle"
-    data-description="Checkout"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto">
-  </script>
-</form>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="card main">
+        <img class="" src="{{ image_file }}" style="width:100%">
+        <div class="container">
+          <h2>{{user.username}}</h2>
+          <p>{{user.role}}</p>
+          <small>{{user.email}}</small>
+          {% if current_user.role == 'freelancer' and user.role != 'freelancer' %}
+          <form method="POST" action="/upload" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="inputFile">File input</label>
+              <input type="file" name="inputFile">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          {% endif %}
+          {% if current_user.role == 'client' and user.role != 'client' %}
+          <button class="button" id="download"><a href="/download">Download file</a></button>
+          <br>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <p>Pay down payment</p>
+                <form action="your-server-side-code" method="POST">
+                  <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_26oMIqspO59QBct1Muv8ZVwE"
+                  data-amount=""
+                  data-name="Hustle"
+                  data-description="Checkout"
+                  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                  data-locale="auto">
+                  </script>
+                </form>
+                <br>
+              </div>
+              <div class="col-md-6">
+                <p>Pay full amount</p>
+                <form action="your-server-side-code" method="POST">
+                  <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_26oMIqspO59QBct1Muv8ZVwE"
+                  data-amount=""
+                  data-name="Hustle"
+                  data-description="Checkout"
+                  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                  data-locale="auto">
+                  </script>
+                </form>
+              </div>
+            </div>
+          </div>
 
-{% endif %}
+
+          {% endif %}
+        </div>
+
+
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  </div>
+
 
 
 {% endblock %}
-

@@ -1,0 +1,37 @@
+.DOWNLOAD{
+  height:240px;
+  width: 400px;
+  margin-left: auto;
+  margin-top: 50px;
+  text-align: centre;
+  margin-right: auto;
+
+}
+#download_key{
+  width:200px;
+  margin-left: 52px;
+  width: 280px;
+  margin-top: 20px;
+  text-align: centre;
+
+}
+.form-control-label{
+  font-size: 20px;
+  text-align: center;
+  margin-left: 80px;
+  margin-top: 20px;
+}
+.btn.btn-primary{
+  margin-left: 140px;
+  margin-top: 20px;
+  text-align: center;
+
+
+}
+.card{
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   height:240px;
+}
+.col-md-6{
+  text-align: centre;
+}
