@@ -1,16 +1,16 @@
 .cot{
-    background-color: white;
-    color: #1d2124;
-    bottom: 0;
-    background: rgba(255, 0, 4 ,  0.5);
-    width: 50%;
-    padding: 20px;
-    text-align: center;
-    margin-left: 22%;
+    margin: auto;
+    width: 27%;
+    padding: 50px;
+    height:558px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
 }
-body{
-    background-color: #1d2124;
-}
-.form-control{
-    background: rgba(0, 0, 0, 0.5);
+.btn.btn-primary{
+  color: #17a2b8;
+  background-color: transparent;
+  background-image: none;
+  border-color: #17a2b8;
+  padding-right: 60px;
+  text-align: center;
 }
