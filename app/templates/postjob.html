@@ -1,8 +1,13 @@
-{% extends 'bootstrap/base.html'%} {% import 'bootstrap/wtf.html' as wtf%} {% block styles%} {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/postjob.css')}}"> {% endblock %} {% block content %}
+{% extends 'bootstrap/base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/postjob.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %} 
+{% block content %}
 <div class="container-fluid" id="postjobcnt">
   <div class="row">
-
     <div class="col-md-3">
     </div>
     <div class="card">

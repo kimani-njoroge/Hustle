@@ -1,34 +1,35 @@
 {% extends 'base.html' %}
 {% block styles%}
-{{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/jobs.css')}}">
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/jobs.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 
 <!-- Content block -->
 {% block content %}
 
 
-<div class="container">
-    {% if current_user.role == 'freelancer' or current_user.role == 'client'  %}
+    <div class="container">
+        {% if current_user.role == 'freelancer' or current_user.role == 'client'  %}
 
-    {%for job in jobs %}
-    {% if job.user == current_user  or current_user.role == 'freelancer' %}
-    <div class="col-md-12 card text-dark">
-        <br>
-        <h2><a class="card-link" href="{{url_for('main.view_job', jobs_id=job.id)}}">{{job.title|capitalize}}</a></h2>
-        <small class="text-muted"> Posted on :{{ job.date_posted.strftime('%Y-%m-%d')}} | Category : {{job.category}}</small>
-        <hr>
-        <p>Descritption:<br>&nbsp;{{job.description}}</p>
-        <p>Expected delivery time : {{job.duration}}</p>
-        <p>Technologies to be used : {{job.technologies|capitalize}}</p>
-        <p>Job posted by: <a class="card-link" href="{{url_for('main.view_account', user_id=job.user.id)}}">{{job.user.username}}</a></p>
+            {%for job in jobs %}
+                {% if job.user == current_user  or current_user.role == 'freelancer' %}
+                    <div class="col-md-12 card text-dark">
+                        <br>
+                        <h2><a class="card-link" href="{{url_for('main.view_job', jobs_id=job.id)}}">{{job.title|capitalize}}</a></h2>
+                        <small class="text-muted"> Posted on :{{ job.date_posted.strftime('%Y-%m-%d')}} | Category : {{job.category}}</small>
+                        <hr>
+                        <p>Descritption:<br>&nbsp;{{job.description}}</p>
+                        <p>Expected delivery time : {{job.duration}}</p>
+                        <p>Technologies to be used : {{job.technologies|capitalize}}</p>
+                        <p>Job posted by: <a class="card-link" href="{{url_for('main.view_account', user_id=job.user.id)}}">{{job.user.username}}</a></p>
+                    </div>
+                {% endif %}
+            {% endfor%}
+        {% endif %}
+
+
     </div>
-    {% endif %}
-    {% endfor%}
-    {% endif %}
-
-
-</div>
 
 
 {% endblock %}
