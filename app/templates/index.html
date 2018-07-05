@@ -1,5 +1,8 @@
-{% extends 'base.html' %} {% block styles%} {{ super() }}
-<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
+{% extends 'base.html' %}
+{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+{% endblock %}
 
 
 <!-- Content block -->
@@ -40,6 +43,17 @@
   </div>
 
 
+
+
 </div>
+        <div class="footer">
+            <div class="row">
+                <div class="col-md-4"><p>HustleInc Contacts</p></div>
+                <div class="col-md-4"><p><span><i class="fas fa-envelope"></i></span>admin@hustle.com</p></div>
+                <div class="col-md-4"><p><span><i class="fas fa-phone-square"></i></span>0712345678</p></div>
+            </div>
+        </div>
+
+
 
 {% endblock %}
