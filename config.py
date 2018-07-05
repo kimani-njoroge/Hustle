@@ -7,7 +7,7 @@ class Config:
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sam:  @localhost/hustle'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://mzaza:password@localhost/hustle'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://mzaza:password@localhost/hustle'
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://neville:quelde@localhost/hustle'
     #SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://midik:12345@localhost/hustle'
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ephantus:switcher12@localhost/hustle'
@@ -20,7 +20,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    pass
 
 
 class TestConfig(Config):
