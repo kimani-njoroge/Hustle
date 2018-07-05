@@ -95,7 +95,7 @@ input[type=text]:focus {
     background-color: rgba(0, 0, 0, 0.014)
 }
 #nv{
-    background-color: rgba(0, 0, 0, 0)
+    background-color: rgba(78, 78, 78, 0.219)
 }
 #cthd{
     text-align: center;
@@ -104,7 +104,7 @@ input[type=text]:focus {
     padding-bottom: 100px;
 } */
 .card-deck{
-    padding-bottom: 100px
+    padding-bottom: 50px
 }
 
 
@@ -121,10 +121,33 @@ input[type=text]:focus {
 }
 
 .navbar-brand{
-    color: black;
-    text-decoration: black;
+    color: rgb(255, 255, 255);
+    text-decoration: rgb(255, 255, 255);
+    font-weight: bold;
 }
-/* #abt{
+
+.nvb{
+    color: rgb(255, 255, 255);
+    text-decoration: rgb(255, 255, 255);
+    text-decoration-line: none;
+    padding-right: 10px;
+    font-weight: bold;
+}
+#tba{
+    text-align: justify;
+}
+
+#abt{
+    padding: 25px;
+}
+
+.cbc{
     text-align: center;
-    background-color: darkgrey;
-} */
+    color: white;
+    text-decoration-color: white;
+}
+
+.abtc{
+    text-align: center;
+}
+
