@@ -1,0 +1,19 @@
+div.card{
+    box-shadow: 2px 4px 12px 2px #DCDCDC;
+    padding-bottom: 1rem;
+    border-radius: 0px;
+
+    margin: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+hr{
+    margin: 0px;
+    margin-right: 100px;
+    width:96%;
+}
+.container{
+    font-family: "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #333333;
+    margin-top: 2rem;
+}
