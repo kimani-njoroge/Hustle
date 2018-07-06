@@ -6,7 +6,7 @@ from flask_login import login_required, current_user
 from .forms import PostBidForm, PostJobForm, ReviewsForm, UpdateAccountForm, DownloadKeyForm
 from ..models import Bids, Jobs, Reviews, User, FileContents, Acceptbids
 from app import db
-from manage import app
+# from manage import app
 from io import BytesIO
 
 
