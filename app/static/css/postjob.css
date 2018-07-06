@@ -20,3 +20,22 @@
   text-align: center;
   margin-bottom: 8px;
 }
+
+
+}
+.nvb{
+    color: rgb(255, 255, 255);
+    text-decoration: rgb(255, 255, 255);
+    text-decoration-line: none;
+    padding-right: 10px;
+    font-weight: bold;
+}
+#nv{
+    background-color: rgba(78, 78, 78, 0.219)
+}
+
+.navbar-brand{
+    color: rgb(255, 255, 255);
+    text-decoration: rgb(255, 255, 255);
+    font-weight: bold;
+}
