@@ -61,6 +61,7 @@ def view_job(jobs_id):
 
 
 @main.route('/jobs/<string:category>', methods=['GET', 'POST'])
+@login_required
 def view_jobs(category):
     jobs = Jobs.query.filter_by(category=category)
     return render_template('jobs.html', jobs=jobs)
